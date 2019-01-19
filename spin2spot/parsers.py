@@ -132,3 +132,32 @@ class WKDUParser(BaseParser):
         title = track.find('td', class_='views-field-title').text.strip()
         album = track.find('td', class_='views-field-album').text.strip()
         return {'artist': artist, 'title': title, 'album': album}
+
+
+class WPRBParser(BaseParser):
+    """Parses a WPRB episode page."""
+    def _parse_title(self, soup):
+        return soup.find('h2', class_='playlist-title-text').text
+
+    def _parse_station(self, soup):
+        return 'WPRB'
+
+    def _parse_dj(self, soup):
+        dj = soup.find('h3', class_='dj-name').text.strip()
+        return dj[5:]  # "with "
+
+    def _parse_datetime(self, soup):
+        date = soup.find('span', class_='playlist-time').text
+        date = ' '.join(date.split('\n')[:2])  # one line
+        date = date.split(' to ')[0]  # remove ending time
+        return dateutil.parser.parse(date)
+
+    def _parse_tracks(self, soup):
+        tracks = soup.findAll('tr', class_='playlist-row')
+        return [self._parse_track(track) for track in tracks]
+
+    def _parse_track(self, track):
+        artist = track.find('td', class_='playlist-artist').text
+        title = track.find('td', class_='playlist-song').text
+        album = track.find('td', class_='playlist-album').text
+        return {'artist': artist, 'title': title, 'album': album}
