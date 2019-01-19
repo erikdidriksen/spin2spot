@@ -101,3 +101,34 @@ class SpinitronV2Parser(BaseParser):
         album = track.find('span', class_='release')
         album = album.text if album else ''
         return {'artist': artist, 'title': title, 'album': album}
+
+
+class WKDUParser(BaseParser):
+    """Parses a WKDU episode page."""
+    def _parse_title(self, soup):
+        sidebar = soup.find('div', class_='panel-col-last')
+        return sidebar.find('h2', class_='pane-title').text
+
+    def _parse_station(self, soup):
+        return 'WKDU'
+
+    def _parse_dj(self, soup):
+        div = soup.find('div', class_='field-field-station-program-dj')
+        return div.find('a').text
+
+    def _parse_datetime(self, soup):
+        panel = soup.find('div', class_='pane-node-content')
+        title = panel.find('h2').text
+        date = title.split(' ')[-1]
+        return dateutil.parser.parse(date)
+
+    def _parse_tracks(self, soup):
+        table = soup.find('table', class_='views-table').find('tbody')
+        tracks = table.findAll('tr')
+        return [self._parse_track(track) for track in tracks]
+
+    def _parse_track(self, track):
+        artist = track.find('td', class_='views-field-artist').text.strip()
+        title = track.find('td', class_='views-field-title').text.strip()
+        album = track.find('td', class_='views-field-album').text.strip()
+        return {'artist': artist, 'title': title, 'album': album}

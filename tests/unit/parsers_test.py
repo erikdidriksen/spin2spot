@@ -14,6 +14,11 @@ def spinitron_v2():
     return fixtures.soup('spinitron_v2.html')
 
 
+@pytest.fixture(scope='module')
+def wkdu():
+    return fixtures.soup('wkdu.html')
+
+
 class TestEnsureIsSoup:
     @pytest.fixture
     def soup(self, spinitron_v1):
@@ -76,3 +81,29 @@ class TestSpinitronV2Parser:
         ])
     def test_parses_track_attributes(self, parser, key, value):
         assert parser.tracks[8][key] == value
+
+
+class TestWKDUParser:
+    @pytest.fixture(scope='class')
+    def parser(self, wkdu):
+        return parsers.WKDUParser(wkdu)
+
+    @pytest.mark.parametrize('attribute, value', [
+        ('title', 'The New Matt Show'),
+        ('station', 'WKDU'),
+        ('dj', 'Matt'),
+        ('datetime', datetime.datetime(2013, 10, 1)),
+        ])
+    def test_parses_flat_attributes(self, parser, attribute, value):
+        assert getattr(parser, attribute) == value
+
+    def test_parses_all_tracks(self, parser):
+        assert len(parser.tracks) == 26
+
+    @pytest.mark.parametrize('key, value', [
+        ('artist', 'Big Star'),
+        ('title', 'September Gurls'),
+        ('album', 'Radio City'),
+        ])
+    def test_parses_track_attributes(self, parser, key, value):
+        assert parser.tracks[0][key] == value
