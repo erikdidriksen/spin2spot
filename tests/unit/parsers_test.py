@@ -167,3 +167,26 @@ class TestWPRBParser:
     def test_builds_title_with_date(self, parser):
         title_with_date = 'Hometown Soundsystem: November 10, 2015'
         assert parser.title_with_date == title_with_date
+
+
+class TestSpinitronParser:
+    ATTRIBUTES = [
+        'title', 'station', 'dj', 'datetime', 'tracks',
+        'description', 'title_with_date',
+        ]
+
+    @pytest.mark.parametrize('attribute', ATTRIBUTES)
+    def test_parses_v1_page(self, spinitron_v1, attribute):
+        parser = parsers.SpinitronParser(spinitron_v1)
+        v1_parser = parsers.SpinitronV1Parser(spinitron_v1)
+        assert getattr(parser, attribute) == getattr(v1_parser, attribute)
+
+    @pytest.mark.parametrize('attribute', ATTRIBUTES)
+    def test_parses_v2_page(self, spinitron_v2, attribute):
+        parser = parsers.SpinitronParser(spinitron_v2)
+        v2_parser = parsers.SpinitronV2Parser(spinitron_v2)
+        assert getattr(parser, attribute) == getattr(v2_parser, attribute)
+
+    def test_raises_error_for_non_spinitron_content(self, wkdu):
+        with pytest.raises(ValueError):
+            parsers.SpinitronParser(wkdu)

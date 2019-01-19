@@ -188,3 +188,27 @@ class WPRBParser(BaseParser):
         title = track.find('td', class_='playlist-song').text
         album = track.find('td', class_='playlist-album').text
         return {'artist': artist, 'title': title, 'album': album}
+
+
+class BaseMultiparser(ABC):
+    """The base class for a parser with subparsers."""
+    def __init__(self, html):
+        soup = ensure_is_soup(html)
+        for subparser in self._SUBPARSERS:
+            try:
+                self._parser = subparser(soup)
+                break
+            except Exception:
+                pass
+        if '_parser' not in self.__dict__:
+            raise ValueError('Cannot parse non-{name} content.'.format(
+                name=self._NAME,
+                ))
+
+    def __getattr__(self, attribute):
+        return getattr(self._parser, attribute)
+
+
+class SpinitronParser(BaseMultiparser):
+    _NAME = 'Spinitron'
+    _SUBPARSERS = [SpinitronV2Parser, SpinitronV1Parser]
