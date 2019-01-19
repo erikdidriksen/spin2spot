@@ -11,6 +11,7 @@ pytest-mock = "*"
 [packages]
 requests = "*"
 bs4 = "*"
+python-dateutil = "*"
 
 [requires]
 python_version = "3.6"
