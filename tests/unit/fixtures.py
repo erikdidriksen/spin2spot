@@ -1,4 +1,5 @@
 import os
+from bs4 import BeautifulSoup
 
 
 def fixture_folder():
@@ -18,3 +19,9 @@ def contents(filename):
     path = fixture_path(filename)
     with open(path, 'r') as fixture_file:
         return fixture_file.read()
+
+
+def soup(filename):
+    """Returns a BeautifulSoup object from the given fixture file."""
+    content = contents(filename)
+    return BeautifulSoup(content, 'html.parser')
