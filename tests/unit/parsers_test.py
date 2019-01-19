@@ -61,6 +61,13 @@ class TestSpinitronV1Parser:
     def test_parses_track_attributes(self, parser, key, value):
         assert parser.tracks[0][key] == value
 
+    def test_builds_description(self, parser):
+        description = 'Tuesday at 11:00am on KWVA with Ruckus the Red'
+        assert parser.description == description
+
+    def test_builds_title_with_date(self, parser):
+        assert parser.title_with_date == 'Ruckus Radio: November 10, 2015'
+
 
 class TestSpinitronV2Parser:
     @pytest.fixture(scope='class')
@@ -86,6 +93,13 @@ class TestSpinitronV2Parser:
         ])
     def test_parses_track_attributes(self, parser, key, value):
         assert parser.tracks[8][key] == value
+
+    def test_builds_description(self, parser):
+        description = 'Tuesday at 2:00pm on WZBC 90.3 FM Newton with Nick'
+        assert parser.description == description
+
+    def test_builds_title_with_date(self, parser):
+        assert parser.title_with_date == '7DayWknd: August 02, 2016'
 
 
 class TestWKDUParser:
@@ -113,6 +127,13 @@ class TestWKDUParser:
     def test_parses_track_attributes(self, parser, key, value):
         assert parser.tracks[0][key] == value
 
+    def test_builds_description(self, parser):
+        description = 'Tuesday on WKDU with Matt'
+        assert parser.description == description
+
+    def test_builds_title_with_date(self, parser):
+        assert parser.title_with_date == 'The New Matt Show: October 01, 2013'
+
 
 class TestWPRBParser:
     @pytest.fixture(scope='class')
@@ -138,3 +159,11 @@ class TestWPRBParser:
         ])
     def test_parses_track_attributes(self, parser, key, value):
         assert parser.tracks[0][key] == value
+
+    def test_builds_description(self, parser):
+        description = 'Tuesday at 2:00pm on WPRB with Bad Newz'
+        assert parser.description == description
+
+    def test_builds_title_with_date(self, parser):
+        title_with_date = 'Hometown Soundsystem: November 10, 2015'
+        assert parser.title_with_date == title_with_date
