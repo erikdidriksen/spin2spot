@@ -73,3 +73,31 @@ class SpinitronV1Parser(BaseParser):
         album = track.find('span', class_='dn')
         album = album.text if album else ''
         return {'artist': artist, 'title': title, 'album': album}
+
+
+class SpinitronV2Parser(BaseParser):
+    """Parses a new-style Spinitron episode page."""
+    def _parse_title(self, soup):
+        return soup.find('h3', class_='show-title').text
+
+    def _parse_station(self, soup):
+        return soup.find('h1').text
+
+    def _parse_dj(self, soup):
+        return soup.find('p', class_='dj-name').find('a').text
+
+    def _parse_datetime(self, soup):
+        date = soup.find('p', class_='timeslot').text
+        date = date[:date.find('–')]  # remove ending time
+        return dateutil.parser.parse(date)
+
+    def _parse_tracks(self, soup):
+        tracks = soup.find('div', class_='spins').findAll('tr')
+        return [self._parse_track(track) for track in tracks]
+
+    def _parse_track(self, track):
+        artist = track.find('span', class_='artist').text
+        title = track.find('span', class_='song').text
+        album = track.find('span', class_='release')
+        album = album.text if album else ''
+        return {'artist': artist, 'title': title, 'album': album}
