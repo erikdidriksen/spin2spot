@@ -29,3 +29,15 @@ class TestRetrieveEpisodeHTML:
 
     def test_returns_html(self, retrieve, html):
         assert retrieve == html
+
+
+class TestRetrieveEpisode:
+    @pytest.fixture
+    def retrieve(self, url):
+        return retrieval.retrieve_episode(url)
+
+    def test_returns_domain(self, retrieve):
+        assert retrieve[0] == 'spinitron.com'
+
+    def test_returns_html(self, retrieve, html):
+        assert retrieve[1] == html
