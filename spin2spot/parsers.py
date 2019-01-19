@@ -212,3 +212,21 @@ class BaseMultiparser(ABC):
 class SpinitronParser(BaseMultiparser):
     _NAME = 'Spinitron'
     _SUBPARSERS = [SpinitronV2Parser, SpinitronV1Parser]
+
+
+DOMAIN_TO_PARSER = {
+    'spinitron.com': SpinitronParser,
+    'wkdu.org': WKDUParser,
+    'wprb.com': WPRBParser,
+    }
+
+
+def parse_episode(domain, html):
+    """Parses the given episode HTML."""
+    try:
+        parser = DOMAIN_TO_PARSER[domain]
+    except KeyError:
+        raise KeyError('Cannot parse content from {domain}.'.format(
+            domain=domain,
+            ))
+    return parser(html)

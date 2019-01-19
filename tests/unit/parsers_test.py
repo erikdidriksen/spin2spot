@@ -190,3 +190,13 @@ class TestSpinitronParser:
     def test_raises_error_for_non_spinitron_content(self, wkdu):
         with pytest.raises(ValueError):
             parsers.SpinitronParser(wkdu)
+
+
+class TestParseEpisode:
+    def test_parses_content(self, spinitron_v1):
+        result = parsers.parse_episode('spinitron.com', spinitron_v1)
+        assert isinstance(result, parsers.SpinitronParser)
+
+    def test_refuses_unconfigured_domains(self):
+        with pytest.raises(KeyError):
+            parsers.parse_episode('unknown.com', '<html />')
