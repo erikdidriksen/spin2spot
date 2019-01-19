@@ -9,6 +9,7 @@ pytest-cov = "*"
 pytest-mock = "*"
 
 [packages]
+requests = "*"
 
 [requires]
 python_version = "3.6"

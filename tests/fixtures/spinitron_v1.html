@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1039.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <title>Spinitron - KWVA: Ruckus Radio Tue Nov 10th 2015</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Spinitron radio playlists for non-commercial music stations">
+    <meta name="copyright" content="Copyright 2014 Spinitron, LLC. All rights reserved.">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Titillium+Web:600,400,400italic|Exo+2:900italic,500'>
+    <link rel="stylesheet" href="/assets1/styles.css">
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <link rel="stylesheet" src="/assets1/lt9.css">
+    <script src="/js/jquery-1.8.3.min.js"></script>
+    <script src="/assets1/lt9.js"></script>
+    <![endif]-->
+        <meta property="fb:app_id" content="161335421321">
+        <meta property="og:type" content="music.playlist">
+        <meta property="og:url" content="//spinitron.com/radio/playlist.php?station=kwva&amp;playlist=20955">
+        <meta property="og:title" content="Ruckus Radio with Ruckus the Red on KWVA Eugene 88.1 FM Tue Nov 10th 2015 11.00AM-12.00PM">
+        <meta property="og:site_name" content="Spinitron"/>
+        <meta property="og:description" content="Spinitron radio playlist"/>
+        <meta property="og:image" content="//spinitron.com/img/spinitron-64x64.png">
+
+</head>
+<body>
+
+<div class="container">
+    <div id="topnav-outer">
+        <nav id="topnav">
+            <ol class="menu">
+                <li id="home" class="bgimg"><a href="/"><span>Home</span></a></li>
+                <li><a href="/member/signin">Login</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/doc/">Help</a></li>
+                <li><a href="http://blog.spinitron.com/">Chart</a></li>
+                <li><a href="/v2/news/" class="v2">News</a></li>
+                <li><a href="/v2/m/search/" class="v2">Search</a></li>
+                <li id="show-menu" class="bgimg"><a href="#"><span>Menu</span></a></li>
+            </ol>
+        </nav>
+    </div>
+
+    <nav id="sidenav" class="public">
+        <div id="leftdiv">
+    <p class="mob-home"><a href="/" title="Spinitron home page"><img src="/img/logo-iphone.png"> <span>SPINITRON</span> home</a></p>
+    <p id="sidebarlogo"><a href="/" title="Spinitron home page"><img alt="logo" src="/img/new-32.png"></a></p>
+    <table class="cal" cellspacing="0">
+        <thead>
+            <tr>
+                <th colspan="2" class="ralign">
+                    <a href="playlist.php?station=kwva&amp;month=Sep&amp;year=2017"><img src="/img/larr.png" width="14" height="11" alt="Previous month"></a></th>
+                <th colspan="3">Oct</th>
+                <th colspan="2" class="lalign">
+                    <a  class="ahem"><img src="/img/rarr.png" width="14" height="11"
+                    alt="Next month"></a></th>
+            </tr>
+            <tr>
+                <th colspan="2" class="ralign">
+                    <a href="playlist.php?station=kwva&amp;month=Oct&amp;year=2016"><img src="/img/larr.png" width="14" height="11" alt="Previous year"></a></th>
+                <th colspan="3">2017</th>
+                <th colspan="2" class="lalign">
+                    <a  class="ahem"><img src="/img/rarr.png" width="14" height="11"
+                    alt="Next year"></a></th>
+            </tr>
+            <tr>
+				<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+			</tr>
+		</thead>
+		<tbody><tr>
+</tr>
+<tr><td><a href="playlist.php?station=kwva&amp;day=01#here">1</a></td><td><a href="playlist.php?station=kwva&amp;day=02#here">2</a></td><td><a href="playlist.php?station=kwva&amp;day=03#here">3</a></td><td><a href="playlist.php?station=kwva&amp;day=04#here">4</a></td><td><a href="playlist.php?station=kwva&amp;day=05#here">5</a></td><td><a href="playlist.php?station=kwva&amp;day=06#here">6</a></td><td><a href="playlist.php?station=kwva&amp;day=07#here">7</a></td></tr>
+<tr><td><a href="playlist.php?station=kwva&amp;day=08#here">8</a></td><td><a href="playlist.php?station=kwva&amp;day=09#here">9</a></td><td><a href="playlist.php?station=kwva&amp;day=10#here">10</a></td><td><a href="playlist.php?station=kwva&amp;day=11#here">11</a></td><td><a href="playlist.php?station=kwva&amp;day=12#here">12</a></td><td><a href="playlist.php?station=kwva&amp;day=13#here">13</a></td><td><a href="playlist.php?station=kwva&amp;day=14#here">14</a></td></tr>
+<tr><td><a href="playlist.php?station=kwva&amp;day=15#here">15</a></td><td><a href="playlist.php?station=kwva&amp;day=16#here">16</a></td><td><a href="playlist.php?station=kwva&amp;day=17#here">17</a></td><td><a href="playlist.php?station=kwva&amp;day=18#here">18</a></td><td><a href="playlist.php?station=kwva&amp;day=19#here">19</a></td><td><a href="playlist.php?station=kwva&amp;day=20#here">20</a></td><td>21</td></tr>
+<tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr>
+<tr><td>29</td><td>30</td><td>31</td></tr>
+</tbody>
+	</table>
+	<p class="part"><a href="playlist.php?station=kwva&amp;playlist=current#main">Current playlist</a><br>
+		<a href="playlist.php?station=kwva&amp;show=schedule&amp;sv=l#here">Program schedule</a><br>
+		<a href="http://www.kwvaradio.org" class="addlayout" target="_blank">KWVA's web site</a><br>
+	<p class="part"><b>Browse</b><br><a href="playlist.php?station=kwva&amp;browse=a">Artists</a> &middot;
+		<a href="playlist.php?station=kwva&amp;browse=d">Disks</a> &middot; <a href="playlist.php?station=kwva&amp;browse=l">Labels</a></p>
+	<form accept-charset="utf-8" name="search" action="playlist.php" method="GET">
+        <input type="hidden" name="station" value="kwva">
+        <input type="hidden" name="year" value="2017">
+        <input type="hidden" name="month" value="Oct">
+        <input type="hidden" name="ptype" value="b">
+		<p class="part"><b>Search</b> the selected month
+		<br><input type="text" name="find" id="findtext" maxlength="63" value="">
+		<br><select name="kind">
+				<option value="artist" >Artists</option>
+				<option value="disk" >Disks</option>
+				<option value="song" >Songs</option>
+				
+			</select>
+			<input type="submit" value="Go"></p>
+	</form>
+	<p class="part" id="feeds"><a class="rsslink" href="/radio/rss.php?station=kwva" title="RSS feed of KWVA’s most recent spins (station feed)"><img src="/rss-feed.png" width="12" height="12" alt="RSS icon"> <span>KWVA</span></a>
+<a class="rsslink" href="/radio/rss.php?station=kwva&amp;showid=6435" title="RSS feed of Ruckus Radio’s most recent spins (show feed)"><img src="/rss-feed.png" width="12" height="12" alt="RSS icon"> <span>Ruckus Radio</span></a>
+<a class="rsslink" href="/radio/rss.php?station=kwva&amp;djid=308" title="RSS feed of Ruckus the Red’s most recent spins (DJ feed)"><img src="/rss-feed.png" width="12" height="12" alt="RSS icon"> <span>Ruckus the Red</span></a></p>
+</div>
+<div id="dynamicbox" style="display:none"><div id="slot1"></div><div id="slot2"></div></div>
+
+
+    </nav>
+
+    <main id="content" class="partial">
+        <header>
+<a name="main" class="mobgoto"></a>
+<div class="spacer"></div>
+<aside></aside>
+<p class="stationid">KWVA Eugene 88.1 FM</p>
+<p class="sloganid">University of Oregon Campus Radio</p>
+</header>
+
+
+        <a name="here" class="mobgoto"></a>
+        
+
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+<div style="" id="playlisthead">
+  <p class="showimg"><img width="51" height="120"  src="/public/logos/kwva/dj_308_lg.jpeg"></p>
+  
+  <p class="plhead"><a href="playlist.php?station=kwva&amp;showid=6435#here">Ruckus Radio </a> (Music)</p>
+  
+  <p class="indent">Garage Rock, Psychedelic Summer</p>
+
+  <div  class="infoblock lead ">
+    
+    <p class="plhead">With <a href="playlist.php?station=kwva&amp;djuid=308#here">Ruckus the Red</a></p>
+	
+    
+    <p class="indent"><a href="http://www.facebook.com/pages/Ruckus-Radio-on-KWVA-881-Eugene/712854498761075?ref=hl&amp;ref_type=bookmark" target="other">http://www.facebook.com/pages/Ruckus-Radio-on-KWVA-881-Eugene/712854498761075?ref=hl&amp;ref_type=bookmark</a></p>
+  </div>
+
+  <p class="plheadsub leadpad">Tue Nov 10th 2015 11.00am–12.00pm</p>
+
+  <p class="plnotes1"><small><b>R</b></small>=listener request.
+	<small><b>N</b></small>=music new at the station.
+	<small><b>L</b></small>=local music. <span class="">Your
+	purchases using the
+	<span class="dynit">Buy it!</span> links
+	help support the station.</span></p>
+	<p class="plnotes1">Time zone: pacific</p>
+	
+    
+        <div class="fb-like " data-href="//spinitron.com/radio/playlist.php?station=kwva&amp;playlist=20955" data-layout="standard" data-action="like" data-size="small" 
+            data-show-faces="true" data-share="true" ></div>
+
+</div>
+
+<div class="plblock withart withbuy"><div class="f2row od" id="#481476"><div class="art"><img src="http://is1.mzstatic.com/image/thumb/Music5/v4/f7/97/b3/f797b39d-0442-d405-d6d4-6b359ca7ee24/759718528626.jpg/170x170bb.jpg"><a href="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music1/v4/09/17/9e/09179e5e-47d8-f7b1-3010-649b92d3f5c6/mzaf_3723917132454791064.plus.aac.p.m4a"></a></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481476" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:03am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=33554#here">Fuzz</a></span> <span class="sn">“Red Flag”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=156109#here">ii</a></span> <span class="de">CD Album</span> <span class="ld">(<a href="playlist.php?station=kwva&amp;dbdetail=l&amp;dbid=358#here">in the red</a> <a href="http://subpop.com" target="labels">subpop.com</a> 2015)</span> <span class="fg">N </span></p></div></div>
+<div class="f2row ev" id="#481479"><div class="art"><img src="http://is5.mzstatic.com/image/thumb/Music1/v4/68/ea/c9/68eac978-135d-ab69-df62-a03bee9edfc5/15UMGIM28241.jpg/170x170bb.jpg"><a href="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music7/v4/b2/f6/85/b2f6853d-064a-2659-e681-3e9b19befdcd/mzaf_1646938784189228863.plus.aac.p.m4a"></a></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481479" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:04am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=2324#here">Eagles Of Death Metal</a></span> <span class="sn">“Got a Woman”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=153418#here">Zipper Down</a></span> <span class="de">CD Album</span> <span class="ld">(<a href="playlist.php?station=kwva&amp;dbdetail=l&amp;dbid=18691#here">Eagles of Death Metal (T-Boy Records) PS</a> 2015)</span></p></div></div>
+<div class="f2row od" id="#481482"><div class="art"><div class="noart"></div></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481482" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:08am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=60806#here">Ray and the Dead Drum</a></span> <span class="sn">“I Know What You Really Need”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=149906#here">X-Ray Vision</a></span></p></div></div>
+<div class="f2row ev" id="#481485"><div class="art"><img src="http://is5.mzstatic.com/image/thumb/Music5/v4/9a/e0/e5/9ae0e571-0c89-1e9f-6333-6abc6939cd2e/819162018453.jpg/170x170bb.jpg"><a href="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music1/v4/72/98/34/72983433-d1e6-68cd-8430-f3165235ae23/mzaf_8048793537385825408.plus.aac.p.m4a"></a></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481485" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:10am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=44564#here">Pow!</a></span> <span class="sn">“Liquid Daydream”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=126824#here">Fight Fire</a></span> <span class="ld">(<a href="playlist.php?station=kwva&amp;dbdetail=l&amp;dbid=2695#here">Castle Face</a> 2015)</span></p></div></div>
+<div class="f2row od" id="#481488"><div class="art"><img src="http://is2.mzstatic.com/image/thumb/Music3/v4/24/05/08/240508d6-f741-2502-3046-e47bacb085c9/655035072517.jpg/170x170bb.jpg"><a href="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music3/v4/c8/7e/b2/c87eb2c3-99d5-072c-8ff5-d1ef4c0eb3eb/mzaf_1631446652514617282.plus.aac.p.m4a"></a></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481488" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:14am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=35745#here">Cool Ghouls</a></span> <span class="sn">“across the River”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=107428#here">A Swirling Fire Burning Through the Rye</a></span> <span class="ld">(<a href="playlist.php?station=kwva&amp;dbdetail=l&amp;dbid=6218#here">Empty Cellar Records</a> 2014)</span></p></div></div>
+<div class="f2row ev" id="#481491"><div class="art"><div class="noart"></div></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481491" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:17am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=55301#here">Baby Jesus</a></span> <span class="sn">“Vansinnet”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=134354#here">Baby Jesus</a></span> <span class="ld">(<a href="playlist.php?station=kwva&amp;dbdetail=l&amp;dbid=19476#here">Yippee Ki Yay Records</a>)</span></p></div></div>
+<div class="f2row od" id="#481494"><div class="art"><img src="http://is3.mzstatic.com/image/thumb/Music7/v4/9f/f9/f9/9ff9f905-94ab-a13b-bb1c-44d2ba573bab/ST_PACK_2400_RGB.jpg/170x170bb.jpg"><a href="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music7/v4/b7/96/8d/b7968d06-cb18-0105-8ae0-798e5042b3d9/mzaf_8178180729590556145.plus.aac.p.m4a"></a></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481494" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:21am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=48136#here">Menace Beach</a></span> <span class="sn">“Hey Toupe”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=156114#here">Super Transporterreum - EP</a></span> <span class="ld">(<a href="playlist.php?station=kwva&amp;dbdetail=l&amp;dbid=610#here">memphis industries</a> <a href="http://www.subpop.com" target="labels">www.subpop.com</a>)</span> <span class="fg">N </span></p></div></div>
+<div class="f2row ev" id="#481497"><div class="art"><div class="noart"></div></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481497" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:23am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=48005#here">Heaters</a></span> <span class="sn">“Master Splinter”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=148828#here">Holy Water Pool</a></span> <span class="ld">(<a href="playlist.php?station=kwva&amp;dbdetail=l&amp;dbid=10360#here">Beyond Beyond is Beyond Records</a> 2015)</span> <span class="fg">N </span></p></div></div>
+<div class="f2row od" id="#481500"><div class="art"><div class="noart"></div></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481500" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:27am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=38495#here">Courtney Barnett</a></span> <span class="sn">“Avant Gardener”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=90153#here">The Double EP: A Sea of Split Peas</a></span> <span class="de">CD</span> <span class="ld">(<a href="playlist.php?station=kwva&amp;dbdetail=l&amp;dbid=11362#here">House Anxiety</a> 2013)</span></p></div></div>
+<div class="f2row ev" id="#481501"><div class="art"><img src="http://is1.mzstatic.com/image/thumb/Music/v4/cb/69/52/cb6952f5-c01e-abb3-a887-daf25c73bdf7/14UMGIM27792.jpg/170x170bb.jpg"><a href="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music4/v4/f0/2a/d5/f02ad5cc-5968-77c8-b879-f4b83c501b03/mzaf_4171549135941951056.plus.aac.p.m4a"></a></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481501" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:35am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=19890#here">White Fence</a></span> <span class="sn">“Hard Water”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=104612#here">For the Recently Found Innocent</a></span> <span class="ld">(<a href="playlist.php?station=kwva&amp;dbdetail=l&amp;dbid=161#here">Drag City</a> <a href="http://www.subpop.com/" target="labels">www.subpop.com/</a> 2014)</span></p></div></div>
+<div class="f2row od" id="#481504"><div class="art"><img src="http://is1.mzstatic.com/image/thumb/Music3/v4/2a/18/f0/2a18f052-5a55-406b-d56c-cef656768f14/cover.jpg/170x170bb.jpg"><a href="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music3/v4/4b/1c/55/4b1c554a-91d4-d311-366f-4c6e875262b9/mzaf_1658641294796920911.plus.aac.p.m4a"></a></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481504" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:36am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=43787#here">King Gizzard &amp; The Lizard Wizard</a></span> <span class="sn">“Hot Water”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=107061#here">I'm In Your Mind Fuzz</a></span> <span class="de">Vinyl Album</span> <span class="ld">(<a href="playlist.php?station=kwva&amp;dbdetail=l&amp;dbid=5950#here">Heavenly Recordings</a> 2014)</span></p></div></div>
+<div class="f2row ev" id="#481507"><div class="art"><div class="noart"></div></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481507" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:40am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=53506#here">Melted</a></span> <span class="sn">“Secrets, Secrets”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=145310#here">Demo Feb '14</a></span></p></div></div>
+<div class="f2row od" id="#481509"><div class="art"><div class="noart"></div></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481509" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:44am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=63718#here">In the Whale</a></span> <span class="sn">“Cavity”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=157810#here">Full Nelson</a></span> <span class="fg">N </span></p></div></div>
+<div class="f2row ev" id="#481512"><div class="art"><img src="http://is5.mzstatic.com/image/thumb/Music3/v4/88/0f/a2/880fa2b2-a74e-68a0-7ae3-96bfd128cc8f/4538182579701_cov.jpg/170x170bb.jpg"><a href="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music3/v4/d4/3c/db/d43cdbeb-7890-9763-e595-af293339a41e/mzaf_5679660311005666773.plus.aac.p.m4a"></a></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481512" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:47am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=52577#here">Shopping</a></span> <span class="sn">“No show”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=154128#here">Why Choose</a></span> <span class="de">CD Album</span> <span class="ld">(<a href="playlist.php?station=kwva&amp;dbdetail=l&amp;dbid=2115#here">Fatcat Records</a> 2015)</span> <span class="fg">N </span></p></div></div>
+<div class="f2row od" id="#481515"><div class="art"><img src="http://is5.mzstatic.com/image/thumb/Music6/v4/3a/48/2f/3a482f7d-d576-b77f-1aa7-1bf5af3893cd/cover.jpg/170x170bb.jpg"><a href="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music3/v4/b1/20/f2/b120f2b9-c901-3a97-6073-25e975123e74/mzaf_4158278126897475375.plus.aac.p.m4a"></a></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481515" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:50am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=39400#here">Boogarins</a></span> <span class="sn">“avalanche”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=159168#here">Manual</a></span> <span class="ld">(<a href="playlist.php?station=kwva&amp;dbdetail=l&amp;dbid=9952#here">Other Music Recording Co.</a> 2015)</span> <span class="fg">N </span></p></div></div>
+<div class="f2row ev" id="#481518"><div class="art"><div class="noart"></div></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481518" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:53am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=59249#here">Uniform</a></span> <span class="sn">“Know Your Name”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=145319#here">Demos</a></span></p></div></div>
+<div class="f2row od" id="#481521"><div class="art"><div class="noart"></div></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481521" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:57am</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=54443#here">Watergate Sandals</a></span> <span class="sn">“landlord”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=131954#here">Sloppy Seconds Demos</a></span></p></div></div>
+<div class="f2row ev" id="#481524"><div class="art"><img src="http://is4.mzstatic.com/image/thumb/Music/v4/6b/06/5b/6b065bce-90a1-7cd4-7cdd-ec4b31079a3a/grass_widow_past_time_print.jpg/170x170bb.jpg"><a href="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/v4/5f/37/8c/5f378c49-dedd-e6db-cab5-8a8990010a6c/mzaf_7690602815173831521.plus.aac.p.m4a"></a></div><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kwva&amp;playlist=20955&amp;merch=song&amp;id=481524" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">12:00pm</p><p><span class="aw"><a href="playlist.php?station=kwva&amp;dbdetail=a&amp;dbid=10820#here">Grass Widow</a></span> <span class="sn">“Strangers Come”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kwva&amp;dbdetail=d&amp;dbid=18979#here">Past Time</a></span> <span class="de">CD Album</span> <span class="ld">(<a href="playlist.php?station=kwva&amp;dbdetail=l&amp;dbid=190#here">Kill Rock Stars</a> <a href="http://www.subpop.com/" target="labels">www.subpop.com/</a> 2010)</span></p></div></div>
+<hr class="clearer"></div>
+<p class="lead" style="color:#666">Like everything else, times are approximate.
+Spinitron and this station are not liable for errors or omissions.</p>
+
+
+
+
+
+    </main>
+
+    <footer>Copyright © 2013 Spinitron, LLC. All rights reserved.</footer>
+</div>
+
+<script src="/assets1/scripts.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/jquery-1.11.1.min.js"><\/script>')</script>
+<script src="/assets/scripts-public.js"></script>
+<script src="/js1/pub_common.min.js" type="text/javascript"></script>
+	<script src="/js1/pub_playlist.min.js" type="text/javascript"></script>
+<script></script>
+<script>jQuery(function ($) { GOTOSPIN($); });</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"eaaa9ca9d4","applicationID":"7096042","transactionName":"Z1dQYUICXkQEBk1aX14dZ0dZTEJWAQxWHEBcU0tZWRBEGRUNSQ==","queueTime":0,"applicationTime":22,"atts":"SxBTFwoYTUo=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
