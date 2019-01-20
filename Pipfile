@@ -12,6 +12,7 @@ pytest-mock = "*"
 requests = "*"
 bs4 = "*"
 python-dateutil = "*"
+spotipy = {git = "https://github.com/plamere/spotipy.git"}
 
 [requires]
 python_version = "3.6"

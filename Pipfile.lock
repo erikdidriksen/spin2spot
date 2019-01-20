@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f14289d8d5596f389652547c7e90841a890ed858c239fbdf313e311848e34c47"
+            "sha256": "f01b042d1e887792694403e7b5f88feda4019d8ce140087ffc01199bedc660b5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -81,6 +81,10 @@
                 "sha256:b23a0d7da0247200fe83c67c34de9d7599ad404106367313d8e65e04174d0b4b"
             ],
             "version": "==1.7.2"
+        },
+        "spotipy": {
+            "git": "https://github.com/plamere/spotipy.git",
+            "ref": "4c2c1d763a3653aa225c4af848409ec31286a6bf"
         },
         "urllib3": {
             "hashes": [

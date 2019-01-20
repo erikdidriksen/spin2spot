@@ -13,3 +13,22 @@ class TestGetUsername:
         mock_os.get.return_value = None
         with pytest.raises(ValueError):
             spotify.get_username()
+
+
+class TestBuildClient:
+    @pytest.fixture(autouse=True)
+    def client(self):
+        return spotify.build_client()
+
+    def test_builds_auth_token_correctly(self, mock_util):
+        mock_util.prompt_for_user_token.assert_called_with(
+            'username',
+            scope='playlist-modify-private playlist-modify-public',
+            )
+
+    def test_builds_spotipy_client_correctly(self, mock_spotipy, mock_util):
+        auth = mock_util.prompt_for_user_token.return_value
+        mock_spotipy.assert_called_with(auth=auth)
+
+    def test_returns_spotipy_client(self, client, mock_spotipy):
+        assert client == mock_spotipy.return_value

@@ -19,3 +19,15 @@ def mock_os(mocker):
     patch = mocker.patch('spin2spot.spotify.os.environ')
     patch.get.return_value = 'username'
     return patch
+
+
+@pytest.fixture(autouse=True)
+def mock_spotipy(mocker):
+    patch = mocker.patch('spin2spot.spotify.spotipy.Spotify')
+    return patch
+
+
+@pytest.fixture(autouse=True)
+def mock_util(mocker):
+    patch = mocker.patch('spin2spot.spotify.util')
+    return patch
