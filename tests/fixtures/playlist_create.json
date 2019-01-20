@@ -1,0 +1,39 @@
+{
+  "collaborative": false,
+  "description": null,
+  "external_urls": {
+    "spotify": "https://open.spotify.com/playlist/407JxJeVQyNxgqy8hC1vTl"
+  },
+  "followers": {
+    "href": null,
+    "total": 0
+  },
+  "href": "https://api.spotify.com/v1/playlists/407JxJeVQyNxgqy8hC1vTl",
+  "id": "407JxJeVQyNxgqy8hC1vTl",
+  "images": [],
+  "name": "",
+  "owner": {
+    "display_name": "Username",
+    "external_urls": {
+      "spotify": "https://open.spotify.com/user/username"
+    },
+    "href": "https://api.spotify.com/v1/users/username",
+    "id": "username",
+    "type": "user",
+    "uri": "spotify:user:username"
+  },
+  "primary_color": null,
+  "public": false,
+  "snapshot_id": "MSwyNjBmNDVkYzlkZGY2NmI2NzdkNDFlZTUyYjM1ZDNiYzI2NjY1ODg0",
+  "tracks": {
+    "href": "https://api.spotify.com/v1/playlists/407JxJeVQyNxgqy8hC1vTl/tracks",
+    "items": [],
+    "limit": 100,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "total": 0
+  },
+  "type": "playlist",
+  "uri": "spotify:user:username:playlist:407JxJeVQyNxgqy8hC1vTl"
+}

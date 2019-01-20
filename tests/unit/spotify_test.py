@@ -1,5 +1,6 @@
 import pytest
 import fixtures
+from spin2spot import parsers
 from spin2spot import spotify
 
 
@@ -62,3 +63,45 @@ class TestGetTrackID:
         track['album'] = 'Live @ Warsaw, 2018/12/01'
         expected = '6Ck7eSqoon2ZHIQZuYAlLf'
         assert spotify.get_track_id(mock_client, track) == expected
+
+
+class TestCreatePlaylistFromParser:
+    @pytest.fixture(scope='class')
+    def parser(self, html):
+        return parsers.SpinitronParser(html)
+
+    @pytest.fixture
+    def track_ids(self):
+        return [
+            '4A09DIPRjs4wFdfD95XhxX', '1CWYaudOeTqf6lqq0uWQ2V', None,
+            '2wDcUFUBXVW52wy72cRgJk', '5HBPyQaZwIgyFKJRMYHvPH', None,
+            '7pgzBbAZf04VaQVy2v0kXe', '4amS5u0OaWRC9n5XPVznsr',
+            '3LueS3mbuB1yaJNN0Ale6U', '3nomqzyImYpSIycH2QdsBm',
+            '2ZXsEn0metMwsRWvFdQCst', None, '2C0dQVPQ5LKNf0vq5eHKlp',
+            '5dhsJkGogwoNTsINvrYhWK', '6YgBglEYdfmeY2EiX22nQO', None,
+            None, '0x4bMpm2reDCqnUSPJqjA0',
+            ]
+
+    @pytest.fixture(autouse=True)
+    def mock_get(self, mocker, track_ids):
+        patch = mocker.patch('spin2spot.spotify.get_track_id')
+        patch.side_effect = track_ids
+        return patch
+
+    def test_creates_spotify_playlist_correctly(self, mock_client, parser):
+        spotify.create_playlist_from_parser(mock_client, parser)
+        mock_client.user_playlist_create.assert_called_with(
+            user='username',
+            name=parser.title_with_date,
+            public=False,
+            description=parser.description,
+            )
+
+    def test_adds_tracks_correctly(self, mock_client, parser, track_ids):
+        spotify.create_playlist_from_parser(mock_client, parser)
+        expected_tracks = [track for track in track_ids if track]
+        mock_client.user_playlist_add_tracks.assert_called_with(
+            user='username',
+            playlist_id='407JxJeVQyNxgqy8hC1vTl',
+            tracks=expected_tracks,
+            )
