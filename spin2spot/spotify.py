@@ -1,6 +1,8 @@
 import os
 import spotipy
 import spotipy.util as util
+from .parsers import parse_episode
+from .retrieval import retrieve_episode
 
 
 def get_username(username=None):
@@ -57,3 +59,10 @@ def create_playlist_from_parser(client, parser, public=False):
         playlist_id=playlist['id'],
         tracks=tracks,
         )
+
+
+def create_playlist(client, url, public=False):
+    """Creates a Spotify playlist for the given URL."""
+    domain, html = retrieve_episode(url)
+    parser = parse_episode(domain, html)
+    create_playlist_from_parser(client, parser, public=public)

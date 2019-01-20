@@ -105,3 +105,29 @@ class TestCreatePlaylistFromParser:
             playlist_id='407JxJeVQyNxgqy8hC1vTl',
             tracks=expected_tracks,
             )
+
+
+class TestCreatePlaylist:
+    @pytest.fixture(autouse=True)
+    def mock_parse(self, mocker):
+        patch = mocker.patch('spin2spot.spotify.parse_episode')
+        return patch
+
+    @pytest.fixture(autouse=True)
+    def mock_create(self, mocker):
+        patch = mocker.patch('spin2spot.spotify.create_playlist_from_parser')
+        return patch
+
+    @pytest.fixture(autouse=True)
+    def create_playlist(self, mock_client, mock_parse, mock_create):
+        spotify.create_playlist(mock_client, 'http://spinitron.com')
+
+    def test_retrieves_episode(self, mock_requests):
+        mock_requests.get.assert_called_with('http://spinitron.com')
+
+    def test_parses_episode(self, mock_parse, html):
+        mock_parse.assert_called_with('spinitron.com', html)
+
+    def test_builds_playlist(self, mock_create, mock_client, mock_parse):
+        parser = mock_parse.return_value
+        mock_create.assert_called_with(mock_client, parser, public=False)
