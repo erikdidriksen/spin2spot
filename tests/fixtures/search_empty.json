@@ -1,0 +1,11 @@
+{
+  "tracks": {
+    "href": "https://api.spotify.com/v1/search?query=artist%3A+%22The+Courtneys%22+track%3A%22Lost+Boys%22&type=track&market=US&offset=0&limit=10",
+    "items": [],
+    "limit": 10,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "total": 0
+  }
+}

@@ -1,3 +1,4 @@
+import json as json_
 import os
 from bs4 import BeautifulSoup
 
@@ -19,6 +20,12 @@ def contents(filename):
     path = fixture_path(filename)
     with open(path, 'r') as fixture_file:
         return fixture_file.read()
+
+
+def json(filename):
+    """Returns the parsed contents of the given JSON fixture file."""
+    content = contents(filename)
+    return json_.loads(content)
 
 
 def soup(filename):

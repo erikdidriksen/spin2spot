@@ -1,4 +1,5 @@
 import pytest
+import fixtures
 from spin2spot import spotify
 
 
@@ -32,3 +33,32 @@ class TestBuildClient:
 
     def test_returns_spotipy_client(self, client, mock_spotipy):
         assert client == mock_spotipy.return_value
+
+
+class TestGetTrackID:
+    @pytest.fixture
+    def track(self):
+        return {
+            'artist': 'The Courtneys',
+            'title': 'Lost Boys',
+            'album': 'Lost Boys',
+            }
+
+    def test_queries_spotify_correctly(self, mock_client, track):
+        spotify.get_track_id(mock_client, track)
+        mock_client.search.assert_called_with(
+            q='artist:"The Courtneys" track:"Lost Boys"',
+            )
+
+    def test_returns_none_if_no_match(self, track, mock_client):
+        mock_client.search.return_value = fixtures.json('search_empty.json')
+        assert spotify.get_track_id(mock_client, track) is None
+
+    def test_returns_matching_album(self, track, mock_client):
+        expected = '4IssUgVW7mVUedc4agB4iW'
+        assert spotify.get_track_id(mock_client, track) == expected
+
+    def test_returns_first_if_no_matching_album(self, track, mock_client):
+        track['album'] = 'Live @ Warsaw, 2018/12/01'
+        expected = '6Ck7eSqoon2ZHIQZuYAlLf'
+        assert spotify.get_track_id(mock_client, track) == expected

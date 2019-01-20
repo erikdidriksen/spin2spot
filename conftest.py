@@ -1,4 +1,5 @@
 import pytest
+from unittest.mock import MagicMock
 from tests.unit import fixtures
 
 
@@ -21,9 +22,22 @@ def mock_os(mocker):
     return patch
 
 
+@pytest.fixture(scope='session')
+def search_track():
+    return fixtures.json('search_track.json')
+
+
+@pytest.fixture
+def mock_client(search_track):
+    client = MagicMock()
+    client.search.return_value = search_track
+    return client
+
+
 @pytest.fixture(autouse=True)
-def mock_spotipy(mocker):
+def mock_spotipy(mocker, mock_client):
     patch = mocker.patch('spin2spot.spotify.spotipy.Spotify')
+    patch.return_value = mock_client
     return patch
 
 
