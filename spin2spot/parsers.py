@@ -119,7 +119,7 @@ class SpinitronV2Parser(BaseParser):
         return dateutil.parser.parse(date)
 
     def _parse_tracks(self, soup):
-        tracks = soup.find('div', class_='spins').findAll('tr')
+        tracks = soup.findAll('tr', class_='spin-item')
         return [self._parse_track(track) for track in tracks]
 
     def _parse_track(self, track):
