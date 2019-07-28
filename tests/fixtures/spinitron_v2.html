@@ -1,34 +1,83 @@
-
 <!doctype html><html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="csrf-param" content="_csrf">
-    <meta name="csrf-token" content="GuwQTbrSuwCZVFVcy5UhOosQih89hwGaJRDOXZpBAbVNjX593YCNQf8sZhKsuAxJyWC8UG-qNeJsZ6oKrjFC1g==">
-
-    <title>wzbc — 7DayWknd</title>
-    <meta name="description" content="one hour of guitar-centric ZBC rock">
-            <script>
-            var _rollbarConfig = {
-                accessToken: "a6ad5c34706b4616b7c050cfe9d74541",
-                captureUncaught: true,
-                captureUnhandledRejections: true,
-                payload: {environment: "v2 JS"}
-            };
-            !function(r){function o(n){if(e[n])return e[n].exports;var t=e[n]={exports:{},id:n,loaded:!1};return r[n].call(t.exports,t,t.exports,o),t.loaded=!0,t.exports}var e={};return o.m=r,o.c=e,o.p="",o(0)}([function(r,o,e){"use strict";var n=e(1),t=e(4);_rollbarConfig=_rollbarConfig||{},_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.2.10/rollbar.min.js",_rollbarConfig.async=void 0===_rollbarConfig.async||_rollbarConfig.async;var a=n.setupShim(window,_rollbarConfig),l=t(_rollbarConfig);window.rollbar=n.Rollbar,a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,l)},function(r,o,e){"use strict";function n(r){return function(){try{return r.apply(this,arguments)}catch(r){try{console.error("[Rollbar]: Internal error",r)}catch(r){}}}}function t(r,o){this.options=r,this._rollbarOldOnError=null;var e=s++;this.shimId=function(){return e},window&&window._rollbarShims&&(window._rollbarShims[e]={handler:o,messages:[]})}function a(r,o){var e=o.globalAlias||"Rollbar";if("object"==typeof r[e])return r[e];r._rollbarShims={},r._rollbarWrappedError=null;var t=new p(o);return n(function(){o.captureUncaught&&(t._rollbarOldOnError=r.onerror,i.captureUncaughtExceptions(r,t,!0),i.wrapGlobals(r,t,!0)),o.captureUnhandledRejections&&i.captureUnhandledRejections(r,t,!0);var n=o.autoInstrument;return o.enabled!==!1&&(void 0===n||n===!0||"object"==typeof n&&n.network)&&r.addEventListener&&(r.addEventListener("load",t.captureLoad.bind(t)),r.addEventListener("DOMContentLoaded",t.captureDomContentLoaded.bind(t))),r[e]=t,t})()}function l(r){return n(function(){var o=this,e=Array.prototype.slice.call(arguments,0),n={shim:o,method:r,args:e,ts:new Date};window._rollbarShims[this.shimId()].messages.push(n)})}var i=e(2),s=0,d=e(3),c=function(r,o){return new t(r,o)},p=d.bind(null,c);t.prototype.loadFull=function(r,o,e,t,a){var l=function(){var o;if(void 0===r._rollbarDidLoad){o=new Error("rollbar.js did not load");for(var e,n,t,l,i=0;e=r._rollbarShims[i++];)for(e=e.messages||[];n=e.shift();)for(t=n.args||[],i=0;i<t.length;++i)if(l=t[i],"function"==typeof l){l(o);break}}"function"==typeof a&&a(o)},i=!1,s=o.createElement("script"),d=o.getElementsByTagName("script")[0],c=d.parentNode;s.crossOrigin="",s.src=t.rollbarJsUrl,e||(s.async=!0),s.onload=s.onreadystatechange=n(function(){if(!(i||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){s.onload=s.onreadystatechange=null;try{c.removeChild(s)}catch(r){}i=!0,l()}}),c.insertBefore(s,d)},t.prototype.wrap=function(r,o,e){try{var n;if(n="function"==typeof o?o:function(){return o||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._rollbar_wrapped&&(r._rollbar_wrapped=function(){e&&"function"==typeof e&&e.apply(this,arguments);try{return r.apply(this,arguments)}catch(e){var o=e;throw"string"==typeof o&&(o=new String(o)),o._rollbarContext=n()||{},o._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=o,o}},r._rollbar_wrapped._isWrap=!0,r.hasOwnProperty))for(var t in r)r.hasOwnProperty(t)&&(r._rollbar_wrapped[t]=r[t]);return r._rollbar_wrapped}catch(o){return r}};for(var u="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,captureEvent,captureDomContentLoaded,captureLoad".split(","),f=0;f<u.length;++f)t.prototype[u[f]]=l(u[f]);r.exports={setupShim:a,Rollbar:p}},function(r,o){"use strict";function e(r,o,e){if(r){var t;"function"==typeof o._rollbarOldOnError?t=o._rollbarOldOnError:r.onerror&&!r.onerror.belongsToShim&&(t=r.onerror,o._rollbarOldOnError=t);var a=function(){var e=Array.prototype.slice.call(arguments,0);n(r,o,t,e)};a.belongsToShim=e,r.onerror=a}}function n(r,o,e,n){r._rollbarWrappedError&&(n[4]||(n[4]=r._rollbarWrappedError),n[5]||(n[5]=r._rollbarWrappedError._rollbarContext),r._rollbarWrappedError=null),o.handleUncaughtException.apply(o,n),e&&e.apply(r,n)}function t(r,o,e){if(r){"function"==typeof r._rollbarURH&&r._rollbarURH.belongsToShim&&r.removeEventListener("unhandledrejection",r._rollbarURH);var n=function(r){var e=r.reason,n=r.promise,t=r.detail;!e&&t&&(e=t.reason,n=t.promise),o&&o.handleUnhandledRejection&&o.handleUnhandledRejection(e,n)};n.belongsToShim=e,r._rollbarURH=n,r.addEventListener("unhandledrejection",n)}}function a(r,o,e){if(r){var n,t,a="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(n=0;n<a.length;++n)t=a[n],r[t]&&r[t].prototype&&l(o,r[t].prototype,e)}}function l(r,o,e){if(o.hasOwnProperty&&o.hasOwnProperty("addEventListener")){for(var n=o.addEventListener;n._rollbarOldAdd&&n.belongsToShim;)n=n._rollbarOldAdd;var t=function(o,e,t){n.call(this,o,r.wrap(e),t)};t._rollbarOldAdd=n,t.belongsToShim=e,o.addEventListener=t;for(var a=o.removeEventListener;a._rollbarOldRemove&&a.belongsToShim;)a=a._rollbarOldRemove;var l=function(r,o,e){a.call(this,r,o&&o._rollbar_wrapped||o,e)};l._rollbarOldRemove=a,l.belongsToShim=e,o.removeEventListener=l}}r.exports={captureUncaughtExceptions:e,captureUnhandledRejections:t,wrapGlobals:a}},function(r,o){"use strict";function e(r,o){this.impl=r(o,this),this.options=o,n(e.prototype)}function n(r){for(var o=function(r){return function(){var o=Array.prototype.slice.call(arguments,0);if(this.impl[r])return this.impl[r].apply(this.impl,o)}},e="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,_createItem,wrap,loadFull,shimId,captureEvent,captureDomContentLoaded,captureLoad".split(","),n=0;n<e.length;n++)r[e[n]]=o(e[n])}e.prototype._swapAndProcessMessages=function(r,o){this.impl=r(this.options);for(var e,n,t;e=o.shift();)n=e.method,t=e.args,this[n]&&"function"==typeof this[n]&&("captureDomContentLoaded"===n||"captureLoad"===n?this[n].apply(this,[t[0],e.ts]):this[n].apply(this,t));return this},r.exports=e},function(r,o){"use strict";r.exports=function(r){return function(o){if(!o&&!window._rollbarInitialized){r=r||{};for(var e,n,t=r.globalAlias||"Rollbar",a=window.rollbar,l=function(r){return new a(r)},i=0;e=window._rollbarShims[i++];)n||(n=e.handler),e.handler._swapAndProcessMessages(l,e.messages);window[t]=n,window._rollbarInitialized=!0}}}}]);
-        </script>
-                                        <meta property="fb:app_id" content="1653161838315721">
-<meta property="og:url" content="https://spinitron.com/wzbc/pl/50067/7DayWknd">
-<meta property="og:title" content="wzbc — 7DayWknd">
-<meta property="og:description" content="one hour of guitar-centric ZBC rock">
-<meta property="og:image" content="https://spinitron.com/images/Persona/29/2934-img_profile-original.jpg?v=1512677083">
+    <meta name="csrf-token" content="S_-esuL6r3ZxLi0J9Lvb5rwQPzrwE7LWL6Nt3JMLFOAUqNrfgYrpMhNhGD66ju6T8lZxaqMm_b0d9yC9zFlY1w==">
+    <title>7DayWknd Tue Aug 2 with Nick on WZBC 90.3 FM Newton</title>
+    <meta name="description" content="Trusted by over 200 non-commercial stations, Spinitron supports playlist logging, reporting, web publishing, automation, push and much more.">
+            
+    <meta property="og:url" content="https://spinitron.com/WZBC/pl/50067/7DayWknd">
+<meta property="og:title" content="7DayWknd Tue Aug 2 with Nick on WZBC 90.3 FM Newton">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://farm8.staticflickr.com/7320/11201017314_6bc0d8e650_m.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="7DayWknd Tue Aug 2 with Nick on WZBC 90.3 FM Newton">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://farm8.staticflickr.com/7320/11201017314_6bc0d8e650_m.jpg">
+<meta property="fb:app_id" content="1653161838315721">
 <meta name="google-signin-client_id" content="87434803599-ajblgrkdkvtalob0qllbaqb1mi7iggb6.apps.googleusercontent.com">
-<link href="https://spinitron.com/wzbc/pl/50067/7DayWknd" rel="canonical">
-<link href="//fonts.googleapis.com/css?family=Londrina+Shadow|Open+Sans:400,400i,600" rel="stylesheet">
-<link href="/static/css/font-awesome.min.css" rel="stylesheet">
-<link href="/static/css/main.min.css?v=1513178639" rel="stylesheet">        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link href="https://spinitron.com/WZBC/pl/50067/7DayWknd" rel="canonical">
+<link href="/static/css/publicPage.min.css?v=1560536054" rel="stylesheet">
+<style>.main-container.widget {
+    margin-top: 1em;
+}
+
+.main-container.widget .show {
+    margin: 0.5em 0 0;
+}
+
+.main-container.widget .show .begin {
+    font-weight: bolder;
+    padding-right: 0.25em;
+}
+
+.playlist.spins .spin-art-container > img {
+    max-width: 4em;
+    max-height: 4em;
+}
+
+.spin-cal .category-zbc-rock {
+    background-color: #ff7400 !important;
+}
+.spin-cal .category-ncp {
+    background-color: #269926 !important;
+}
+.spin-cal .category-specialty {
+    background-color: #009999 !important;
+}
+</style>
+    
+<script>
+    var _rollbarConfig = {
+        accessToken: "a6ad5c34706b4616b7c050cfe9d74541",
+        hostWhiteList: ['spinitron.com'],
+        captureUncaught: true,
+        captureUnhandledRejections: true,
+        payload: {
+            environment: "v2 JS",
+            client: {javascript: {code_version: ""}},
+            person: [],
+        },
+        checkIgnore: function(isUncaught, args, payload) {
+            if (!isUncaught || !args || !args[0]) {
+                return false;
+            }
+            // Ignore unfixable errors.
+            return args[0].indexOf("Script error") !== -1
+                || (args[0].indexOf("Illegal invocation") !== -1 && window.location.search.indexOf("fbclid") !== -1)
+                || args[0].indexOf("Unsupported keySystem") !== -1
+                || args[0].indexOf("requestMediaKeySystemAccess is disabled") !== -1;
+        },
+    };
+    // @formatter:off
+    !function(r){function o(n){if(e[n])return e[n].exports;var t=e[n]={exports:{},id:n,loaded:!1};return r[n].call(t.exports,t,t.exports,o),t.loaded=!0,t.exports}var e={};return o.m=r,o.c=e,o.p="",o(0)}([function(r,o,e){"use strict";var n=e(1),t=e(4);_rollbarConfig=_rollbarConfig||{},_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.2.10/rollbar.min.js",_rollbarConfig.async=void 0===_rollbarConfig.async||_rollbarConfig.async;var a=n.setupShim(window,_rollbarConfig),l=t(_rollbarConfig);window.rollbar=n.Rollbar,a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,l)},function(r,o,e){"use strict";function n(r){return function(){try{return r.apply(this,arguments)}catch(r){try{console.error("[Rollbar]: Internal error",r)}catch(r){}}}}function t(r,o){this.options=r,this._rollbarOldOnError=null;var e=s++;this.shimId=function(){return e},window&&window._rollbarShims&&(window._rollbarShims[e]={handler:o,messages:[]})}function a(r,o){var e=o.globalAlias||"Rollbar";if("object"==typeof r[e])return r[e];r._rollbarShims={},r._rollbarWrappedError=null;var t=new p(o);return n(function(){o.captureUncaught&&(t._rollbarOldOnError=r.onerror,i.captureUncaughtExceptions(r,t,!0),i.wrapGlobals(r,t,!0)),o.captureUnhandledRejections&&i.captureUnhandledRejections(r,t,!0);var n=o.autoInstrument;return o.enabled!==!1&&(void 0===n||n===!0||"object"==typeof n&&n.network)&&r.addEventListener&&(r.addEventListener("load",t.captureLoad.bind(t)),r.addEventListener("DOMContentLoaded",t.captureDomContentLoaded.bind(t))),r[e]=t,t})()}function l(r){return n(function(){var o=this,e=Array.prototype.slice.call(arguments,0),n={shim:o,method:r,args:e,ts:new Date};window._rollbarShims[this.shimId()].messages.push(n)})}var i=e(2),s=0,d=e(3),c=function(r,o){return new t(r,o)},p=d.bind(null,c);t.prototype.loadFull=function(r,o,e,t,a){var l=function(){var o;if(void 0===r._rollbarDidLoad){o=new Error("rollbar.js did not load");for(var e,n,t,l,i=0;e=r._rollbarShims[i++];)for(e=e.messages||[];n=e.shift();)for(t=n.args||[],i=0;i<t.length;++i)if(l=t[i],"function"==typeof l){l(o);break}}"function"==typeof a&&a(o)},i=!1,s=o.createElement("script"),d=o.getElementsByTagName("script")[0],c=d.parentNode;s.crossOrigin="",s.src=t.rollbarJsUrl,e||(s.async=!0),s.onload=s.onreadystatechange=n(function(){if(!(i||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){s.onload=s.onreadystatechange=null;try{c.removeChild(s)}catch(r){}i=!0,l()}}),c.insertBefore(s,d)},t.prototype.wrap=function(r,o,e){try{var n;if(n="function"==typeof o?o:function(){return o||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._rollbar_wrapped&&(r._rollbar_wrapped=function(){e&&"function"==typeof e&&e.apply(this,arguments);try{return r.apply(this,arguments)}catch(e){var o=e;throw"string"==typeof o&&(o=new String(o)),o._rollbarContext=n()||{},o._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=o,o}},r._rollbar_wrapped._isWrap=!0,r.hasOwnProperty))for(var t in r)r.hasOwnProperty(t)&&(r._rollbar_wrapped[t]=r[t]);return r._rollbar_wrapped}catch(o){return r}};for(var u="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,captureEvent,captureDomContentLoaded,captureLoad".split(","),f=0;f<u.length;++f)t.prototype[u[f]]=l(u[f]);r.exports={setupShim:a,Rollbar:p}},function(r,o){"use strict";function e(r,o,e){if(r){var t;"function"==typeof o._rollbarOldOnError?t=o._rollbarOldOnError:r.onerror&&!r.onerror.belongsToShim&&(t=r.onerror,o._rollbarOldOnError=t);var a=function(){var e=Array.prototype.slice.call(arguments,0);n(r,o,t,e)};a.belongsToShim=e,r.onerror=a}}function n(r,o,e,n){r._rollbarWrappedError&&(n[4]||(n[4]=r._rollbarWrappedError),n[5]||(n[5]=r._rollbarWrappedError._rollbarContext),r._rollbarWrappedError=null),o.handleUncaughtException.apply(o,n),e&&e.apply(r,n)}function t(r,o,e){if(r){"function"==typeof r._rollbarURH&&r._rollbarURH.belongsToShim&&r.removeEventListener("unhandledrejection",r._rollbarURH);var n=function(r){var e=r.reason,n=r.promise,t=r.detail;!e&&t&&(e=t.reason,n=t.promise),o&&o.handleUnhandledRejection&&o.handleUnhandledRejection(e,n)};n.belongsToShim=e,r._rollbarURH=n,r.addEventListener("unhandledrejection",n)}}function a(r,o,e){if(r){var n,t,a="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(n=0;n<a.length;++n)t=a[n],r[t]&&r[t].prototype&&l(o,r[t].prototype,e)}}function l(r,o,e){if(o.hasOwnProperty&&o.hasOwnProperty("addEventListener")){for(var n=o.addEventListener;n._rollbarOldAdd&&n.belongsToShim;)n=n._rollbarOldAdd;var t=function(o,e,t){n.call(this,o,r.wrap(e),t)};t._rollbarOldAdd=n,t.belongsToShim=e,o.addEventListener=t;for(var a=o.removeEventListener;a._rollbarOldRemove&&a.belongsToShim;)a=a._rollbarOldRemove;var l=function(r,o,e){a.call(this,r,o&&o._rollbar_wrapped||o,e)};l._rollbarOldRemove=a,l.belongsToShim=e,o.removeEventListener=l}}r.exports={captureUncaughtExceptions:e,captureUnhandledRejections:t,wrapGlobals:a}},function(r,o){"use strict";function e(r,o){this.impl=r(o,this),this.options=o,n(e.prototype)}function n(r){for(var o=function(r){return function(){var o=Array.prototype.slice.call(arguments,0);if(this.impl[r])return this.impl[r].apply(this.impl,o)}},e="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,_createItem,wrap,loadFull,shimId,captureEvent,captureDomContentLoaded,captureLoad".split(","),n=0;n<e.length;n++)r[e[n]]=o(e[n])}e.prototype._swapAndProcessMessages=function(r,o){this.impl=r(this.options);for(var e,n,t;e=o.shift();)n=e.method,t=e.args,this[n]&&"function"==typeof this[n]&&("captureDomContentLoaded"===n||"captureLoad"===n?this[n].apply(this,[t[0],e.ts]):this[n].apply(this,t));return this},r.exports=e},function(r,o){"use strict";r.exports=function(r){return function(o){if(!o&&!window._rollbarInitialized){r=r||{};for(var e,n,t=r.globalAlias||"Rollbar",a=window.rollbar,l=function(r){return new a(r)},i=0;e=window._rollbarShims[i++];)n||(n=e.handler),e.handler._swapAndProcessMessages(l,e.messages);window[t]=n,window._rollbarInitialized=!0}}}}]);
+    // @formatter:on
+</script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
@@ -49,62 +98,537 @@
 <body class="public">
 
 <div class="main-container">
-    <div class="main wrapper clearfix">
-        <div id="notifications-w1" class="notifications"></div>        
+        <div class="main wrapper clearfix">
+                <div id="notifications-w1" class="notifications"></div>        
 <div class="view-page">
-            <div class="head">
-            <div>
-                <h1><a class="home" href="/wzbc/">WZBC 90.3 FM Newton</a></h1>
-                <h5>Boston College Radio, Chestnut Hill, MA</h5>
+    <div class="head station">
+        <div>
+            <h1 class="station-title"><a class="home" href="/WZBC/">WZBC 90.3 FM Newton</a></h1>
+            <h2 class="station-slogan">Boston College Radio, Chestnut Hill, MA</h2>
 
-                                    <p>Student-run radio station at Boston College, Chestnut Hill, Mass. USA</p>
-                
+                            <div class="station-description"><p>Student-run radio station at Boston College, Chestnut Hill, Mass. USA</p></div>
+            
+            <nav>
                 <ul>
+                    <li><a href="/WZBC/calendar">Calendar</a></li>
                                             <li><a href="http://wzbc.org" target="_blank">wzbc.org</a></li>
-                                        <li><a href="/wzbc/calendar">Calendar</a></li>
-                </ul>
+                                    </ul>
+            </nav>
+
+                    </div>
+
+                    <div class="image">
+                <img src="/images/Station/18-img_logo-original.png?v=1512677078" alt="WZBC 90.3 FM Newton">            </div>
             </div>
 
-                            <div class="image">
-                    <img src="/images/Station//18-img_logo-original.png?v=1512677078" alt="WZBC 90.3 FM Newton">                </div>
-                    </div>
-    
     
 
-<div class="head">
-    <div class="playlist">
-        <h3 class="show-title">7DayWknd </h3>
-        <p class="timeslot">Aug 2, 2016            2:00 PM&nbsp;–&nbsp;3:00 PM</p>
+<div class="head playlist">
+    <div class="data">
+        <h3 class="show-title">
+            <a href="/WZBC/show/1191/7DayWknd">7DayWknd</a>        </h3>
+
+                    <p class="timeslot">
+                Aug 2, 2016 2:00 PM&nbsp;–&nbsp;3:00 PM            </p>
+        
         <p class="show-categoty">ZBC Rock</p>
-        <p class="dj-name">With <a href="/wzbc/dj/2934/Nick">Nick</a></p>
-        <div class="description">one hour of guitar-centric ZBC rock</div>
-    </div>
+        <p class="dj-name">
+                            With <a href="/WZBC/dj/2934/Nick">Nick</a>                    </p>
+
+        <div class="description"></div>
+
+        
+        <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd&amp;text=7DayWknd+Tue+Aug+2+with+Nick+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    </div>
 
             <div class="image">
-            <img src="/images/Persona/29/2934-img_profile-original.jpg?v=1512677083" alt="7DayWknd">        </div>
+            <img src="https://farm8.staticflickr.com/7320/11201017314_6bc0d8e650_m.jpg" alt="7DayWknd">        </div>
     </div>
 
-<div class="spins-chat">
-    
-<div id="w0" class="playlist spins"><table class="table table-striped table-bordered"><tbody>
-<tr data-key="0"><td class="spin-time">2:02 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">White Lung</span> <span class="spin song">Below</span> <br> <span class="spin release">Paradise</span> <span class="spin label">Domino Recording Co 2016</span></td></tr>
-<tr data-key="1"><td class="spin-time">2:05 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">Greys</span> <span class="spin song">No Star</span> <br> <span class="spin release">Outer Heaven</span> <span class="spin label">Buzz Records 2016</span></td></tr>
-<tr data-key="2"><td class="spin-time">2:08 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">Earth Girls</span> <span class="spin song">Say Goodnight</span> <br> <span class="spin release">Single</span></td></tr>
-<tr data-key="3"><td class="spin-time">2:11 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">Krill</span> <span class="spin song">Theme from Krill</span> <br> <span class="spin release">Lucky Leaves</span> <span class="spin label">self-released 2013</span></td></tr>
-<tr data-key="4"><td class="spin-time">2:14 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">LILITH</span> <span class="spin song">In Warm Weather</span> <br> <span class="spin release">In Warm Weather</span></td></tr>
-<tr data-key="5"><td class="spin-time">2:18 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">David Bowie</span> <span class="spin song">TVC15</span> <br> <span class="spin release">station to station</span> <span class="spin label">EMI 1976</span></td></tr>
-<tr data-key="6"><td class="spin-time">2:24 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">Pity Sex</span> <span class="spin song">Burden You</span> <br> <span class="spin release">White Hot Moon</span> <span class="spin label">Run For Cover Records, LLC 2016</span></td></tr>
-<tr data-key="7"><td class="spin-time">2:27 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">Car Seat Headrest</span> <span class="spin song">Destroyed by Hippie Powers</span> <br> <span class="spin release">Teens of Denial</span> <span class="spin label">Matador / Beggars 2016</span></td></tr>
-<tr data-key="8"><td class="spin-time">2:34 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">Future Teens</span> <span class="spin song">Action Potential</span> <br> <span class="spin release">Action Potential - Single</span> <span class="spin label"> 2014</span></td></tr>
-<tr data-key="9"><td class="spin-time">2:37 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">Diarrhea Planet</span> <span class="spin song">Announcement</span> <br> <span class="spin release">Turn to Gold</span> <span class="spin label">Dine Alone Music </span></td></tr>
-<tr data-key="10"><td class="spin-time">2:42 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">Descendents</span> <span class="spin song">Without Love</span> <br> <span class="spin release">Hypercaffium Spazzinate (Deluxe Edition)</span> <span class="spin label">Epitaph </span></td></tr>
-<tr data-key="11"><td class="spin-time">2:44 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">The Bouncing Souls</span> <span class="spin song">writing On the Wall</span> <br> <span class="spin release">Simplicity</span> <span class="spin label">Rise Records </span></td></tr>
-<tr data-key="12"><td class="spin-time">2:49 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">Badfellows</span> <span class="spin song">Lummox</span> <br> <span class="spin release">Personal Beehive</span> <span class="spin label">Granite Tapes. All rights reserved. Unauthorized reproduction is a violation of applicable laws. Dis </span></td></tr>
-<tr data-key="13"><td class="spin-time">2:55 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">Downtown Boys</span> <span class="spin song">Wave of History</span> <br> <span class="spin release">Full Communism</span> <span class="spin label">Don Giovanni Records 2015</span></td></tr>
-<tr data-key="14"><td class="spin-time">2:55 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">Lady Pills</span> <span class="spin song">seven days</span> <br> <span class="spin release">Despite</span> <span class="spin label">Babe City Records 2016</span></td></tr>
-<tr data-key="15"><td class="spin-time">2:55 PM</td><td class="spin-art"><img alt=""></td><td class="spin-text"><span class="spin artist">Kitner</span> <span class="spin song">Your memory</span> <br> <span class="spin release">Stay Sad - EP</span> <span class="spin label">Kitner </span></td></tr>
-</tbody></table>
 
+<div class="spins-chat">
+    <div id="public-spins-0" class="spins public-spins">
+<table class="table table-striped table-bordered"><tbody>
+<tr id="sp-1203462" class="spin-item" data-spin="{&quot;i&quot;:&quot;GBCEL1500765&quot;,&quot;a&quot;:&quot;White Lung&quot;,&quot;s&quot;:&quot;Below&quot;,&quot;r&quot;:&quot;Paradise&quot;}" data-key="1203462"><td class="spin-time">2:02 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="White Lung - Below">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">White Lung</span> <span class="song">Below</span></div><div class="info"><span class="release">Paradise</span> <span class="parenthesis"><span class="label">Domino Recording Co</span> <span class="label-custom">US</span> <span class="released">2016</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203462" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203462&amp;text=%22Below%22+by+White+Lung+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;White Lung - Below&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;White Lung - Below&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;White Lung - Below&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;White Lung - Below&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;White Lung - Below&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;White Lung - Below&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203465" class="spin-item" data-spin="{&quot;i&quot;:&quot;US22N1611302&quot;,&quot;a&quot;:&quot;Greys&quot;,&quot;s&quot;:&quot;No Star&quot;,&quot;r&quot;:&quot;Outer Heaven&quot;}" data-key="1203465"><td class="spin-time">2:05 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="Greys - No Star">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">Greys</span> <span class="song">No Star</span></div><div class="info"><span class="release">Outer Heaven</span> <span class="parenthesis"><span class="label">Buzz Records</span> <span class="released">2016</span> <span class="medium">CD</span> <span class="genre">Rock</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203465" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203465&amp;text=%22No+Star%22+by+Greys+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;Greys - No Star&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;Greys - No Star&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Greys - No Star&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;Greys - No Star&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Greys - No Star&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;Greys - No Star&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203468" class="spin-item" data-spin="{&quot;i&quot;:null,&quot;a&quot;:&quot;Earth Girls&quot;,&quot;s&quot;:&quot;Say Goodnight&quot;,&quot;r&quot;:&quot;Single&quot;}" data-key="1203468"><td class="spin-time">2:08 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="Earth Girls - Say Goodnight">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">Earth Girls</span> <span class="song">Say Goodnight</span></div><div class="info"><span class="release">Single</span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203468" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203468&amp;text=%22Say+Goodnight%22+by+Earth+Girls+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;Earth Girls - Say Goodnight&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;Earth Girls - Say Goodnight&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Earth Girls - Say Goodnight&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;Earth Girls - Say Goodnight&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Earth Girls - Say Goodnight&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;Earth Girls - Say Goodnight&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203471" class="spin-item" data-spin="{&quot;i&quot;:&quot;FR10S1422730&quot;,&quot;a&quot;:&quot;Krill&quot;,&quot;s&quot;:&quot;Theme from Krill&quot;,&quot;r&quot;:&quot;Lucky Leaves&quot;}" data-key="1203471"><td class="spin-time">2:11 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="Krill - Theme from Krill">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">Krill</span> <span class="song">Theme from Krill</span> <span class="local">L</span></div><div class="info"><span class="release">Lucky Leaves</span> <span class="parenthesis"><span class="label">self-released</span> <span class="label-custom">UK</span> <span class="released">2013</span> <span class="medium">MP3</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203471" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203471&amp;text=%22Theme+from+Krill%22+by+Krill+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;Krill - Theme from Krill&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;Krill - Theme from Krill&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Krill - Theme from Krill&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;Krill - Theme from Krill&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Krill - Theme from Krill&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;Krill - Theme from Krill&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203474" class="spin-item" data-spin="{&quot;i&quot;:null,&quot;a&quot;:&quot;LILITH&quot;,&quot;s&quot;:&quot;In Warm Weather&quot;,&quot;r&quot;:&quot;In Warm Weather&quot;}" data-key="1203474"><td class="spin-time">2:14 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="LILITH - In Warm Weather">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">LILITH</span> <span class="song">In Warm Weather</span></div><div class="info"><span class="release">In Warm Weather</span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203474" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203474&amp;text=%22In+Warm+Weather%22+by+LILITH+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;LILITH - In Warm Weather&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;LILITH - In Warm Weather&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;LILITH - In Warm Weather&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;LILITH - In Warm Weather&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;LILITH - In Warm Weather&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;LILITH - In Warm Weather&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203477" class="spin-item" data-spin="{&quot;i&quot;:null,&quot;a&quot;:&quot;David Bowie&quot;,&quot;s&quot;:&quot;TVC15&quot;,&quot;r&quot;:&quot;station to station&quot;}" data-key="1203477"><td class="spin-time">2:18 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="David Bowie - TVC15">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">David Bowie</span> <span class="song">TVC15</span></div><div class="info"><span class="release">station to station</span> <span class="parenthesis"><span class="label">EMI</span> <span class="label-custom">UK</span> <span class="released">1976</span> <span class="medium">CD</span> <span class="genre">Rock</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203477" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203477&amp;text=%22TVC15%22+by+David+Bowie+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;David Bowie - TVC15&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;David Bowie - TVC15&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;David Bowie - TVC15&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;David Bowie - TVC15&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;David Bowie - TVC15&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;David Bowie - TVC15&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203480" class="spin-item" data-spin="{&quot;i&quot;:&quot;QMCE71300489&quot;,&quot;a&quot;:&quot;Pity Sex&quot;,&quot;s&quot;:&quot;Burden You&quot;,&quot;r&quot;:&quot;White Hot Moon&quot;}" data-key="1203480"><td class="spin-time">2:24 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="Pity Sex - Burden You">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">Pity Sex</span> <span class="song">Burden You</span></div><div class="info"><span class="release">White Hot Moon</span> <span class="parenthesis"><span class="label">Run For Cover Records, LLC</span> <span class="label-custom">USA, www.carparkrecords.com, info@subpop.com</span> <span class="released">2016</span> <span class="medium">CD</span> <span class="genre">Rock</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203480" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203480&amp;text=%22Burden+You%22+by+Pity+Sex+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;Pity Sex - Burden You&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;Pity Sex - Burden You&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Pity Sex - Burden You&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;Pity Sex - Burden You&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Pity Sex - Burden You&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;Pity Sex - Burden You&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203483" class="spin-item" data-spin="{&quot;i&quot;:&quot;USMTD1607729&quot;,&quot;a&quot;:&quot;Car Seat Headrest&quot;,&quot;s&quot;:&quot;Destroyed by Hippie Powers&quot;,&quot;r&quot;:&quot;Teens of Denial&quot;}" data-key="1203483"><td class="spin-time">2:27 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="Car Seat Headrest - Destroyed by Hippie Powers">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">Car Seat Headrest</span> <span class="song">Destroyed by Hippie Powers</span></div><div class="info"><span class="release">Teens of Denial</span> <span class="parenthesis"><span class="label">Matador / Beggars</span> <span class="released">2016</span> <span class="medium">MP3</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203483" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203483&amp;text=%22Destroyed+by+Hippie+Powers%22+by+Car+Seat+Headrest+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;Car Seat Headrest - Destroyed by Hippie Powers&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;Car Seat Headrest - Destroyed by Hippie Powers&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Car Seat Headrest - Destroyed by Hippie Powers&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;Car Seat Headrest - Destroyed by Hippie Powers&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Car Seat Headrest - Destroyed by Hippie Powers&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;Car Seat Headrest - Destroyed by Hippie Powers&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203486" class="spin-item" data-spin="{&quot;i&quot;:null,&quot;a&quot;:&quot;Future Teens&quot;,&quot;s&quot;:&quot;Action Potential&quot;,&quot;r&quot;:&quot;Action Potential - Single&quot;}" data-key="1203486"><td class="spin-time">2:34 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="Future Teens - Action Potential">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">Future Teens</span> <span class="song">Action Potential</span></div><div class="info"><span class="release">Action Potential - Single</span> <span class="parenthesis"><span class="released">2014</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203486" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203486&amp;text=%22Action+Potential%22+by+Future+Teens+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;Future Teens - Action Potential&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;Future Teens - Action Potential&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Future Teens - Action Potential&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;Future Teens - Action Potential&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Future Teens - Action Potential&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;Future Teens - Action Potential&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203489" class="spin-item" data-spin="{&quot;i&quot;:&quot;US4NP1600002&quot;,&quot;a&quot;:&quot;Diarrhea Planet&quot;,&quot;s&quot;:&quot;Announcement&quot;,&quot;r&quot;:&quot;Turn to Gold&quot;}" data-key="1203489"><td class="spin-time">2:37 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="Diarrhea Planet - Announcement">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">Diarrhea Planet</span> <span class="song">Announcement</span></div><div class="info"><span class="release">Turn to Gold</span> <span class="parenthesis"><span class="label">Dine Alone Music</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203489" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203489&amp;text=%22Announcement%22+by+Diarrhea+Planet+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;Diarrhea Planet - Announcement&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;Diarrhea Planet - Announcement&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Diarrhea Planet - Announcement&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;Diarrhea Planet - Announcement&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Diarrhea Planet - Announcement&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;Diarrhea Planet - Announcement&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203492" class="spin-item" data-spin="{&quot;i&quot;:&quot;USEP41615023&quot;,&quot;a&quot;:&quot;Descendents&quot;,&quot;s&quot;:&quot;Without Love&quot;,&quot;r&quot;:&quot;Hypercaffium Spazzinate (Deluxe Edition)&quot;}" data-key="1203492"><td class="spin-time">2:42 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="Descendents - Without Love">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">Descendents</span> <span class="song">Without Love</span></div><div class="info"><span class="release">Hypercaffium Spazzinate (Deluxe Edition)</span> <span class="parenthesis"><span class="label">Epitaph</span> <span class="label-custom">US</span> <span class="genre">Rock</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203492" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203492&amp;text=%22Without+Love%22+by+Descendents+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;Descendents - Without Love&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;Descendents - Without Love&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Descendents - Without Love&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;Descendents - Without Love&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Descendents - Without Love&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;Descendents - Without Love&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203495" class="spin-item" data-spin="{&quot;i&quot;:&quot;USEK71632608&quot;,&quot;a&quot;:&quot;The Bouncing Souls&quot;,&quot;s&quot;:&quot;writing On the Wall&quot;,&quot;r&quot;:&quot;Simplicity&quot;}" data-key="1203495"><td class="spin-time">2:44 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="The Bouncing Souls - writing On the Wall">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">The Bouncing Souls</span> <span class="song">writing On the Wall</span></div><div class="info"><span class="release">Simplicity</span> <span class="parenthesis"><span class="label">Rise Records</span> <span class="label-custom">USA</span> <span class="genre">Rock</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203495" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203495&amp;text=%22writing+On+the+Wall%22+by+The+Bouncing+Souls+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;The Bouncing Souls - writing On the Wall&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;The Bouncing Souls - writing On the Wall&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;The Bouncing Souls - writing On the Wall&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;The Bouncing Souls - writing On the Wall&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;The Bouncing Souls - writing On the Wall&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;The Bouncing Souls - writing On the Wall&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203498" class="spin-item" data-spin="{&quot;i&quot;:null,&quot;a&quot;:&quot;Badfellows&quot;,&quot;s&quot;:&quot;Lummox&quot;,&quot;r&quot;:&quot;Personal Beehive&quot;}" data-key="1203498"><td class="spin-time">2:49 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="Badfellows - Lummox">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">Badfellows</span> <span class="song">Lummox</span> <span class="local">L</span></div><div class="info"><span class="release">Personal Beehive</span> <span class="parenthesis"><span class="label">Granite Tapes. All rights reserved. Unauthorized reproduction is a violation of applicable laws. Dis</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203498" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203498&amp;text=%22Lummox%22+by+Badfellows+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;Badfellows - Lummox&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;Badfellows - Lummox&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Badfellows - Lummox&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;Badfellows - Lummox&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Badfellows - Lummox&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;Badfellows - Lummox&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203501" class="spin-item" data-spin="{&quot;i&quot;:&quot;USA2B1511833&quot;,&quot;a&quot;:&quot;Downtown Boys&quot;,&quot;s&quot;:&quot;Wave of History&quot;,&quot;r&quot;:&quot;Full Communism&quot;}" data-key="1203501"><td class="spin-time">2:55 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="Downtown Boys - Wave of History">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">Downtown Boys</span> <span class="song">Wave of History</span> <span class="local">L</span></div><div class="info"><span class="release">Full Communism</span> <span class="parenthesis"><span class="label">Don Giovanni Records</span> <span class="released">2015</span> <span class="medium">LP</span> <span class="genre">Rock</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203501" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203501&amp;text=%22Wave+of+History%22+by+Downtown+Boys+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;Downtown Boys - Wave of History&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;Downtown Boys - Wave of History&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Downtown Boys - Wave of History&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;Downtown Boys - Wave of History&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Downtown Boys - Wave of History&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;Downtown Boys - Wave of History&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203504" class="spin-item" data-spin="{&quot;i&quot;:&quot;QM2PV1634334&quot;,&quot;a&quot;:&quot;Lady Pills&quot;,&quot;s&quot;:&quot;seven days&quot;,&quot;r&quot;:&quot;Despite&quot;}" data-key="1203504"><td class="spin-time">2:55 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="Lady Pills - seven days">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">Lady Pills</span> <span class="song">seven days</span> <span class="local">L</span></div><div class="info"><span class="release">Despite</span> <span class="parenthesis"><span class="label">Babe City Records</span> <span class="released">2016</span> <span class="genre">Rock</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203504" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203504&amp;text=%22seven+days%22+by+Lady+Pills+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;Lady Pills - seven days&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;Lady Pills - seven days&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Lady Pills - seven days&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;Lady Pills - seven days&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Lady Pills - seven days&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;Lady Pills - seven days&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+<tr id="sp-1203507" class="spin-item" data-spin="{&quot;i&quot;:&quot;USHM81521300&quot;,&quot;a&quot;:&quot;Kitner&quot;,&quot;s&quot;:&quot;Your memory&quot;,&quot;r&quot;:&quot;Stay Sad - EP&quot;}" data-key="1203507"><td class="spin-time">2:55 PM</td><td class="spin-art">
+    <div class="spin-art-container">
+                    <img class="empty-art spin-art-placeholder" src="https://spinitron.com/static/pictures/placeholders/loudspeaker.svg" alt="Kitner - Your memory">        
+        <div class="spin-player not-playable">
+            <div class="player-icon">
+                <div class="spin-play-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" />
+                    </svg>
+                </div>
+                <div class="spin-pause-icon">
+                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</td><td class="spin-text"><div class="spin"><span class="artist">Kitner</span> <span class="song">Your memory</span></div><div class="info"><span class="release">Stay Sad - EP</span> <span class="parenthesis"><span class="label">Kitner</span></span></div>
+<div class="spin-icons">
+            <!--noindex--><ul class="social-share"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203507" rel="noopener" target="_blank"><i class="icon-social icon-fb"></i></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fspinitron.com%2FWZBC%2Fpl%2F50067%2F7DayWknd%23sp-1203507&amp;text=%22Your+memory%22+by+Kitner+on+WZBC+90.3+FM+Newton&amp;via=spinitron" rel="noopener" target="_blank"><i class="icon-social icon-tw"></i></a></li></ul><!--/noindex-->    
+            <ul class="spin-buy-icons">
+                            <li><a class="buy-link" href="#" title="View &quot;Kitner - Your memory&quot; on Apple" target="_blank" data-vendor="apple"><div class="buy-icon buy-icon-apple" alt="View &quot;Kitner - Your memory&quot; on Apple"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Kitner - Your memory&quot; on Amazon" target="_blank" data-vendor="amazon"><div class="buy-icon buy-icon-amazon" alt="View &quot;Kitner - Your memory&quot; on Amazon"></div></a></li>
+                            <li><a class="buy-link" href="#" title="View &quot;Kitner - Your memory&quot; on Spotify" target="_blank" data-vendor="spotify"><div class="buy-icon buy-icon-spotify" alt="View &quot;Kitner - Your memory&quot; on Spotify"></div></a></li>
+                    </ul>
+    </div>
+</td></tr>
+</tbody></table>
 </div>
     </div>
 </div>
@@ -114,16 +638,15 @@
 
 <div class="footer-container">
     <footer class="wrapper">
-        <p>Copyright © 2016-18 Spinitron LLC. All rights reserved.</p>
+        <p>Copyright © 2016-19 Spinitron LLC. All rights reserved.</p>
     </footer>
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="/static/js/vendor/jquery-ui.min.js"></script>
-<script src="/static/js/vendor/yii.min.js?v=1513093480"></script>
-<script src="/static/js/guest.min.js?v=1513093480"></script>
-<script type="text/javascript">jQuery(function ($) {
-jQuery('#w0').yiiGridView({"filterUrl":"\/wzbc\/pl\/50067\/7DayWknd","filterSelector":"#w0-filters input, #w0-filters select"});
+<script src="/static/vendor/jquery.min.js"></script>
+<script src="//js-cdn.music.apple.com/musickit/v1/musickit.js" async></script>
+<script src="/static/js/publicPage.min.js?v=1562087578"></script>
+<script>jQuery(function ($) {
+$('#public-spins-0').publicSpinsGrid({"appleMusicDevToken":"eyJhbGciOiJFUzI1NiIsImtpZCI6IkZBMzk0UDZXNjQifQ.eyJpc3MiOiJVODdTTUw2NzZRIiwiaWF0IjoxNTU4ODg4NTIwLCJleHAiOjE1NzIxMDc3MjB9.1dMaNVmIh5Dnn7oCr8imbe3VOSPzHf3p8iaNQ27L5pVm8r8yiSU2Dvsa3EbL-LhnBd8bBjWbEElf7xcknEycJg","playerEnabled":true,"merchEnabled":true,"merchUrl":"https:\/\/spinitron.com\/m\/spin\/merch"});
 });</script>
 </body>
 </html>
