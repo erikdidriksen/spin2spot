@@ -45,11 +45,20 @@ class TestGetTrackID:
             'album': 'Lost Boys',
             }
 
-    def test_queries_spotify_correctly(self, mock_client, track):
+    @pytest.mark.parametrize('track, expected', [
+        (
+            {'artist': 'The Courtneys', 'title': 'Lost Boys'},
+            'artist:"The Courtneys" track:"Lost Boys"',
+        ),
+        (
+            {'artist': 'Future Teens', 'title': "What's My Sign Again?"},
+            'artist:"Future Teens" track:"Whats My Sign Again?"',
+        ),
+        ])
+    def test_queries_spotify_correctly(self, mock_client, track, expected):
+        track['album'] = ''
         spotify.get_track_id(mock_client, track)
-        mock_client.search.assert_called_with(
-            q='artist:"The Courtneys" track:"Lost Boys"',
-            )
+        mock_client.search.assert_called_with(q=expected)
 
     def test_returns_none_if_no_match(self, track, mock_client):
         mock_client.search.return_value = fixtures.json('search_empty.json')

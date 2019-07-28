@@ -30,8 +30,14 @@ def albums_match(spotify_track, parsed_track):
     return spotify_album.lower() == parsed_album.lower()
 
 
+def _format_query(string):
+    """Format the query string."""
+    return string.replace("'", "")
+
+
 def get_track_id(client, track):
     """Returns the Spotify track ID for the given track."""
+    track = {k: _format_query(v) for k, v in track.items()}
     query = 'artist:"{artist}" track:"{title}"'.format(**track)
     results = client.search(q=query)
     if not results['tracks']['total']:
