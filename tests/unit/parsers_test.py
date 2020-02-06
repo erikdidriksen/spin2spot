@@ -5,6 +5,11 @@ from spin2spot import parsers
 
 
 @pytest.fixture(scope='module')
+def setlist_fm():
+    return fixtures.soup('setlist_fm.html')
+
+
+@pytest.fixture(scope='module')
 def spinitron_v1():
     return fixtures.soup('spinitron_v1.html')
 
@@ -34,6 +39,34 @@ class TestEnsureIsSoup:
 
     def test_returns_soup_for_raw_html(self, soup, html):
         assert parsers.ensure_is_soup(html) == soup
+
+
+class TestSetlistFMParser:
+    @pytest.fixture(scope='class')
+    def parser(self, setlist_fm):
+        return parsers.SetlistFMParser(setlist_fm)
+
+    @pytest.mark.parametrize('attribute, value', [
+        ('title', 'The Lemonheads'),
+        ('station', ''),
+        ('dj', ''),
+        ('datetime', datetime.datetime(2019, 5, 4)),
+        ])
+    def test_parses_flat_attributes(self, parser, attribute, value):
+        assert getattr(parser, attribute) == value
+
+    def test_parses_all_tracks(self, parser):
+        assert len(parser.tracks) == 23
+
+    @pytest.mark.parametrize('key, value', [
+        ('artist', 'The Lemonheads'),
+        ('title', 'Being Around'),
+        ])
+    def test_parses_track_attributes(self, parser, key, value):
+        assert parser.tracks[1][key] == value
+
+    def test_builds_title_with_date(self, parser):
+        assert parser.title_with_date == 'The Lemonheads: May 04, 2019'
 
 
 class TestSpinitronV1Parser:

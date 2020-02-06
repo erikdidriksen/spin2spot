@@ -73,6 +73,31 @@ class BaseParser(ABC):
             )
 
 
+class SetlistFMParser(BaseParser):
+    """Parses a Setlist.FM page."""
+    def _parse_title(self, soup):
+        return soup.find('h1').find('a').text.strip()
+
+    def _parse_station(self, soup):
+        return ''
+
+    def _parse_dj(self, soup):
+        return ''
+
+    def _parse_datetime(self, soup):
+        date = soup.find('div', class_='dateBlock').text
+        return dateutil.parser.parse(date)
+
+    def _parse_tracks(self, soup):
+        tracks = soup.findAll('li', class_='song')
+        return [self._parse_track(track) for track in tracks]
+
+    def _parse_track(self, track):
+        artist = self.title
+        title = track.find('a').text
+        return {'artist': artist, 'title': title}
+
+
 class SpinitronV1Parser(BaseParser):
     """Parses an old-style Spinitron episode page."""
     def _parse_title(self, soup):
