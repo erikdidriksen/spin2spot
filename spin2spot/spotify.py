@@ -1,8 +1,19 @@
 import os
+import re
 import spotipy
 import spotipy.util as util
 from .parsers import parse_episode
 from .retrieval import retrieve_episode
+
+INVALID_CHARACTERS = re.compile(
+    r'''
+    [^        # ignore everything except
+    \w\s      # words and whitespace
+    \.\:\/    # periods, colons, slashes
+    \-\=      # hyphens, equal signs
+    ]''',
+    re.VERBOSE,
+    )
 
 
 def get_username(username=None):
@@ -25,7 +36,7 @@ def build_client(username=None):
 
 def _format_query(string):
     """Format the query string."""
-    return string.replace("'", "")
+    return INVALID_CHARACTERS.sub('', string)
 
 
 def _get_track_search_results(client, artist, title, album=None):

@@ -36,6 +36,24 @@ class TestBuildClient:
         assert client == mock_spotipy.return_value
 
 
+class TestFormatQuery:
+    @pytest.mark.parametrize('string, expected', [
+        ('1 Samuel 15:23', '1 Samuel 15:23'),
+        ('5-4=Unity', '5-4=Unity'),
+        ('Avenues & Alleyways', 'Avenues  Alleyways'),
+        ('Earth A.D.', 'Earth A.D.'),
+        ('Kiwi Maddog 20/20', 'Kiwi Maddog 20/20'),
+        ('Neighborhood #1 (Tunnels)', 'Neighborhood #1 Tunnels'),
+        ('One last "Whoo-hoo!" for the Pullman', 'One last Whoo-hoo for the Pullman'),
+        ("Scott Get the Van, I'm Moving", 'Scott Get the Van, Im Moving'),
+        ("Scott Get the Van, I’m Moving", 'Scott Get the Van, Im Moving'),
+        ('Two-Headed Boy', 'Two-Headed Boy'),
+        ("What's My Sign Again?", 'Whats My Sign Again'),
+        ])
+    def test_reformats_strings_correctly(self, string, expected):
+        assert spotify._format_query(string) == expected
+
+
 class TestGetTrackID:
     @pytest.fixture
     def track(self):
@@ -47,12 +65,8 @@ class TestGetTrackID:
 
     @pytest.mark.parametrize('keywords, expected', [
         (
-            {'artist': 'The Courtneys', 'title': 'Lost Boys'},
-            'artist:"The Courtneys" track:"Lost Boys"',
-        ),
-        (
             {'artist': 'Future Teens', 'title': "What's My Sign Again?"},
-            'artist:"Future Teens" track:"Whats My Sign Again?"',
+            'artist:"Future Teens" track:"Whats My Sign Again"',
         ),
         ])
     def test_queries_spotify_correctly(self, mock_client, keywords, expected):
