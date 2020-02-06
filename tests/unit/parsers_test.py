@@ -69,6 +69,9 @@ class TestSetlistFMParser:
     def test_builds_title_with_date(self, parser):
         assert parser.title_with_date == 'The Lemonheads: May 04, 2019'
 
+    def test_builds_custom_description(self, parser):
+        assert parser.description == 'At Brooklyn Bowl, Brooklyn, NY, USA'
+
 
 class TestSpinitronV1Parser:
     @pytest.fixture(scope='class')

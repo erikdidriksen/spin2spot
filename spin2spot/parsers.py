@@ -103,6 +103,10 @@ class SetlistFMParser(BaseParser):
         title = track.find('a').text
         return {'artist': artist, 'title': title}
 
+    @property
+    def description(self):
+        return 'At {venue}'.format(venue=self.venue)
+
 
 class SpinitronV1Parser(BaseParser):
     """Parses an old-style Spinitron episode page."""
