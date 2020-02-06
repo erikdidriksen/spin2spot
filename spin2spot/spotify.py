@@ -23,10 +23,9 @@ def build_client(username=None):
     return spotipy.Spotify(auth=auth)
 
 
-def albums_match(spotify_track, parsed_track):
+def albums_match(spotify_track, parsed_album):
     """Returns True if the tracks' album titles match."""
     spotify_album = spotify_track['album']['name']
-    parsed_album = parsed_track['album']
     return spotify_album.lower() == parsed_album.lower()
 
 
@@ -35,23 +34,28 @@ def _format_query(string):
     return string.replace("'", "")
 
 
-def get_track_id(client, track):
+def get_track_id(client, artist, title, album=None):
     """Returns the Spotify track ID for the given track."""
-    track = {k: _format_query(v) for k, v in track.items()}
-    query = 'artist:"{artist}" track:"{title}"'.format(**track)
+    artist = _format_query(artist)
+    title = _format_query(title)
+    album = _format_query(album) if album is not None else ''
+    query = 'artist:"{artist}" track:"{track}"'.format(
+        artist=artist,
+        track=title,
+        )
     results = client.search(q=query)
     if not results['tracks']['total']:
         return None
     results = results['tracks']['items']
     return next(
-        (result['id'] for result in results if albums_match(result, track)),
+        (result['id'] for result in results if albums_match(result, album)),
         results[0]['id'],
         )
 
 
 def create_playlist_from_parser(client, parser, public=False):
     """Creates a Spotify playlist for the given parsed episode."""
-    tracks = [get_track_id(client, track) for track in parser.tracks]
+    tracks = [get_track_id(client, **track) for track in parser.tracks]
     tracks = [track for track in tracks if track]
     user = client.current_user()['id']
     playlist = client.user_playlist_create(

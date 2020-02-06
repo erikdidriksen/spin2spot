@@ -45,7 +45,7 @@ class TestGetTrackID:
             'album': 'Lost Boys',
             }
 
-    @pytest.mark.parametrize('track, expected', [
+    @pytest.mark.parametrize('keywords, expected', [
         (
             {'artist': 'The Courtneys', 'title': 'Lost Boys'},
             'artist:"The Courtneys" track:"Lost Boys"',
@@ -55,23 +55,22 @@ class TestGetTrackID:
             'artist:"Future Teens" track:"Whats My Sign Again?"',
         ),
         ])
-    def test_queries_spotify_correctly(self, mock_client, track, expected):
-        track['album'] = ''
-        spotify.get_track_id(mock_client, track)
+    def test_queries_spotify_correctly(self, mock_client, keywords, expected):
+        spotify.get_track_id(mock_client, **keywords)
         mock_client.search.assert_called_with(q=expected)
 
     def test_returns_none_if_no_match(self, track, mock_client):
         mock_client.search.return_value = fixtures.json('search_empty.json')
-        assert spotify.get_track_id(mock_client, track) is None
+        assert spotify.get_track_id(mock_client, **track) is None
 
     def test_returns_matching_album(self, track, mock_client):
         expected = '4IssUgVW7mVUedc4agB4iW'
-        assert spotify.get_track_id(mock_client, track) == expected
+        assert spotify.get_track_id(mock_client, **track) == expected
 
     def test_returns_first_if_no_matching_album(self, track, mock_client):
         track['album'] = 'Live @ Warsaw, 2018/12/01'
         expected = '6Ck7eSqoon2ZHIQZuYAlLf'
-        assert spotify.get_track_id(mock_client, track) == expected
+        assert spotify.get_track_id(mock_client, **track) == expected
 
 
 class TestCreatePlaylistFromParser:
