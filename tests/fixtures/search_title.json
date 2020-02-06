@@ -1,0 +1,1067 @@
+{
+  "tracks": {
+    "href": "https://api.spotify.com/v1/search?query=artist%3A%22Beach+Slang%22+track%3A%22Kids%22&type=track&offset=0&limit=10",
+    "items": [
+      {
+        "album": {
+          "album_type": "album",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/3d5usliWmjkMKGsv2X341Q"
+              },
+              "href": "https://api.spotify.com/v1/artists/3d5usliWmjkMKGsv2X341Q",
+              "id": "3d5usliWmjkMKGsv2X341Q",
+              "name": "Beach Slang",
+              "type": "artist",
+              "uri": "spotify:artist:3d5usliWmjkMKGsv2X341Q"
+            }
+          ],
+          "available_markets": [
+            "CA",
+            "US"
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/4znnHby7qWrj9AYvdEuaNX"
+          },
+          "href": "https://api.spotify.com/v1/albums/4znnHby7qWrj9AYvdEuaNX",
+          "id": "4znnHby7qWrj9AYvdEuaNX",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/5291a46f21274e39ad9e004192b95b519dc41f24",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/30da6f838f9ba04f27cae26544eb6053a2fcc450",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/f3a06f85f536cfda064cddae8aee3a4e375b0b92",
+              "width": 64
+            }
+          ],
+          "name": "The Deadbeat Bang Of Heartbreak City",
+          "release_date": "2020-01-10",
+          "release_date_precision": "day",
+          "total_tracks": 11,
+          "type": "album",
+          "uri": "spotify:album:4znnHby7qWrj9AYvdEuaNX"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3d5usliWmjkMKGsv2X341Q"
+            },
+            "href": "https://api.spotify.com/v1/artists/3d5usliWmjkMKGsv2X341Q",
+            "id": "3d5usliWmjkMKGsv2X341Q",
+            "name": "Beach Slang",
+            "type": "artist",
+            "uri": "spotify:artist:3d5usliWmjkMKGsv2X341Q"
+          }
+        ],
+        "available_markets": [
+          "CA",
+          "US"
+        ],
+        "disc_number": 1,
+        "duration_ms": 101685,
+        "explicit": false,
+        "external_ids": {
+          "isrc": "US2Y71900034"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/7GEPoERiUnmrlXjOJ5lc7B"
+        },
+        "href": "https://api.spotify.com/v1/tracks/7GEPoERiUnmrlXjOJ5lc7B",
+        "id": "7GEPoERiUnmrlXjOJ5lc7B",
+        "is_local": false,
+        "name": "All The Kids In LA",
+        "popularity": 31,
+        "preview_url": null,
+        "track_number": 1,
+        "type": "track",
+        "uri": "spotify:track:7GEPoERiUnmrlXjOJ5lc7B"
+      },
+      {
+        "album": {
+          "album_type": "album",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/3d5usliWmjkMKGsv2X341Q"
+              },
+              "href": "https://api.spotify.com/v1/artists/3d5usliWmjkMKGsv2X341Q",
+              "id": "3d5usliWmjkMKGsv2X341Q",
+              "name": "Beach Slang",
+              "type": "artist",
+              "uri": "spotify:artist:3d5usliWmjkMKGsv2X341Q"
+            }
+          ],
+          "available_markets": [
+            "AE",
+            "AR",
+            "BH",
+            "BO",
+            "BR",
+            "CA",
+            "CL",
+            "CO",
+            "CR",
+            "DO",
+            "DZ",
+            "EC",
+            "EG",
+            "GT",
+            "HK",
+            "HN",
+            "ID",
+            "IL",
+            "JO",
+            "JP",
+            "KW",
+            "LB",
+            "MA",
+            "MX",
+            "MY",
+            "NI",
+            "OM",
+            "PA",
+            "PE",
+            "PH",
+            "PS",
+            "PY",
+            "QA",
+            "SA",
+            "SG",
+            "SV",
+            "TH",
+            "TN",
+            "TW",
+            "US",
+            "UY",
+            "VN",
+            "ZA"
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/7EWoJBkexhSaNFFHmGGDLu"
+          },
+          "href": "https://api.spotify.com/v1/albums/7EWoJBkexhSaNFFHmGGDLu",
+          "id": "7EWoJBkexhSaNFFHmGGDLu",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b27354ab10ef5fe4029b7b1ac6fb",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e0254ab10ef5fe4029b7b1ac6fb",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d0000485154ab10ef5fe4029b7b1ac6fb",
+              "width": 64
+            }
+          ],
+          "name": "A Loud Bash Of Teenage Feelings",
+          "release_date": "2016-09-23",
+          "release_date_precision": "day",
+          "total_tracks": 10,
+          "type": "album",
+          "uri": "spotify:album:7EWoJBkexhSaNFFHmGGDLu"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3d5usliWmjkMKGsv2X341Q"
+            },
+            "href": "https://api.spotify.com/v1/artists/3d5usliWmjkMKGsv2X341Q",
+            "id": "3d5usliWmjkMKGsv2X341Q",
+            "name": "Beach Slang",
+            "type": "artist",
+            "uri": "spotify:artist:3d5usliWmjkMKGsv2X341Q"
+          }
+        ],
+        "available_markets": [
+          "AE",
+          "AR",
+          "BH",
+          "BO",
+          "BR",
+          "CA",
+          "CL",
+          "CO",
+          "CR",
+          "DO",
+          "DZ",
+          "EC",
+          "EG",
+          "GT",
+          "HK",
+          "HN",
+          "ID",
+          "IL",
+          "JO",
+          "JP",
+          "KW",
+          "LB",
+          "MA",
+          "MX",
+          "MY",
+          "NI",
+          "OM",
+          "PA",
+          "PE",
+          "PH",
+          "PS",
+          "PY",
+          "QA",
+          "SA",
+          "SG",
+          "SV",
+          "TH",
+          "TN",
+          "TW",
+          "US",
+          "UY",
+          "VN",
+          "ZA"
+        ],
+        "disc_number": 1,
+        "duration_ms": 158640,
+        "explicit": false,
+        "external_ids": {
+          "isrc": "US3R41631901"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/0PyxraBvpi88QA4qiX2K5j"
+        },
+        "href": "https://api.spotify.com/v1/tracks/0PyxraBvpi88QA4qiX2K5j",
+        "id": "0PyxraBvpi88QA4qiX2K5j",
+        "is_local": false,
+        "name": "Future Mixtape For The Art Kids",
+        "popularity": 30,
+        "preview_url": "https://p.scdn.co/mp3-preview/9e51e6e3d89fc4d99781246ef2efe05b9378282b?cid=e57a713a18d4472d87247a6a97994337",
+        "track_number": 1,
+        "type": "track",
+        "uri": "spotify:track:0PyxraBvpi88QA4qiX2K5j"
+      },
+      {
+        "album": {
+          "album_type": "single",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/3d5usliWmjkMKGsv2X341Q"
+              },
+              "href": "https://api.spotify.com/v1/artists/3d5usliWmjkMKGsv2X341Q",
+              "id": "3d5usliWmjkMKGsv2X341Q",
+              "name": "Beach Slang",
+              "type": "artist",
+              "uri": "spotify:artist:3d5usliWmjkMKGsv2X341Q"
+            }
+          ],
+          "available_markets": [
+            "AD",
+            "AE",
+            "AR",
+            "AT",
+            "BE",
+            "BG",
+            "BH",
+            "BO",
+            "BR",
+            "CA",
+            "CH",
+            "CL",
+            "CO",
+            "CR",
+            "CY",
+            "CZ",
+            "DE",
+            "DK",
+            "DO",
+            "DZ",
+            "EC",
+            "EE",
+            "EG",
+            "ES",
+            "FI",
+            "FR",
+            "GB",
+            "GR",
+            "GT",
+            "HK",
+            "HN",
+            "HU",
+            "ID",
+            "IE",
+            "IL",
+            "IN",
+            "IS",
+            "IT",
+            "JO",
+            "JP",
+            "KW",
+            "LB",
+            "LI",
+            "LT",
+            "LU",
+            "LV",
+            "MA",
+            "MC",
+            "MT",
+            "MX",
+            "MY",
+            "NI",
+            "NL",
+            "NO",
+            "OM",
+            "PA",
+            "PE",
+            "PH",
+            "PL",
+            "PS",
+            "PT",
+            "PY",
+            "QA",
+            "RO",
+            "SA",
+            "SE",
+            "SG",
+            "SK",
+            "SV",
+            "TH",
+            "TN",
+            "TR",
+            "TW",
+            "US",
+            "UY",
+            "VN",
+            "ZA"
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/41YTNTrz2StzlpxAzEe3O5"
+          },
+          "href": "https://api.spotify.com/v1/albums/41YTNTrz2StzlpxAzEe3O5",
+          "id": "41YTNTrz2StzlpxAzEe3O5",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b273c7dffc4ec205a31e46058390",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e02c7dffc4ec205a31e46058390",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d00004851c7dffc4ec205a31e46058390",
+              "width": 64
+            }
+          ],
+          "name": "Who Would Ever Want Anything So Broken?",
+          "release_date": "2014-04-17",
+          "release_date_precision": "day",
+          "total_tracks": 4,
+          "type": "album",
+          "uri": "spotify:album:41YTNTrz2StzlpxAzEe3O5"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3d5usliWmjkMKGsv2X341Q"
+            },
+            "href": "https://api.spotify.com/v1/artists/3d5usliWmjkMKGsv2X341Q",
+            "id": "3d5usliWmjkMKGsv2X341Q",
+            "name": "Beach Slang",
+            "type": "artist",
+            "uri": "spotify:artist:3d5usliWmjkMKGsv2X341Q"
+          }
+        ],
+        "available_markets": [
+          "AD",
+          "AE",
+          "AR",
+          "AT",
+          "BE",
+          "BG",
+          "BH",
+          "BO",
+          "BR",
+          "CA",
+          "CH",
+          "CL",
+          "CO",
+          "CR",
+          "CY",
+          "CZ",
+          "DE",
+          "DK",
+          "DO",
+          "DZ",
+          "EC",
+          "EE",
+          "EG",
+          "ES",
+          "FI",
+          "FR",
+          "GB",
+          "GR",
+          "GT",
+          "HK",
+          "HN",
+          "HU",
+          "ID",
+          "IE",
+          "IL",
+          "IN",
+          "IS",
+          "IT",
+          "JO",
+          "JP",
+          "KW",
+          "LB",
+          "LI",
+          "LT",
+          "LU",
+          "LV",
+          "MA",
+          "MC",
+          "MT",
+          "MX",
+          "MY",
+          "NI",
+          "NL",
+          "NO",
+          "OM",
+          "PA",
+          "PE",
+          "PH",
+          "PL",
+          "PS",
+          "PT",
+          "PY",
+          "QA",
+          "RO",
+          "SA",
+          "SE",
+          "SG",
+          "SK",
+          "SV",
+          "TH",
+          "TN",
+          "TR",
+          "TW",
+          "US",
+          "UY",
+          "VN",
+          "ZA"
+        ],
+        "disc_number": 1,
+        "duration_ms": 150746,
+        "explicit": false,
+        "external_ids": {
+          "isrc": "USA2P1404522"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/68npV3EWVTeDjL2gEL2eq9"
+        },
+        "href": "https://api.spotify.com/v1/tracks/68npV3EWVTeDjL2gEL2eq9",
+        "id": "68npV3EWVTeDjL2gEL2eq9",
+        "is_local": false,
+        "name": "Kids",
+        "popularity": 17,
+        "preview_url": "https://p.scdn.co/mp3-preview/66ca8fd427ecccd91fd962506a5f0bb42b4d5f3d?cid=e57a713a18d4472d87247a6a97994337",
+        "track_number": 2,
+        "type": "track",
+        "uri": "spotify:track:68npV3EWVTeDjL2gEL2eq9"
+      },
+      {
+        "album": {
+          "album_type": "album",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/3d5usliWmjkMKGsv2X341Q"
+              },
+              "href": "https://api.spotify.com/v1/artists/3d5usliWmjkMKGsv2X341Q",
+              "id": "3d5usliWmjkMKGsv2X341Q",
+              "name": "Beach Slang",
+              "type": "artist",
+              "uri": "spotify:artist:3d5usliWmjkMKGsv2X341Q"
+            }
+          ],
+          "available_markets": [
+            "AE",
+            "AR",
+            "AU",
+            "BH",
+            "BO",
+            "BR",
+            "CA",
+            "CL",
+            "CO",
+            "CR",
+            "DO",
+            "DZ",
+            "EC",
+            "EG",
+            "GT",
+            "HK",
+            "HN",
+            "ID",
+            "IL",
+            "JO",
+            "KW",
+            "LB",
+            "MA",
+            "MX",
+            "MY",
+            "NI",
+            "NZ",
+            "OM",
+            "PA",
+            "PE",
+            "PH",
+            "PS",
+            "PY",
+            "QA",
+            "SA",
+            "SG",
+            "SV",
+            "TH",
+            "TN",
+            "TW",
+            "US",
+            "UY",
+            "VN",
+            "ZA"
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/28z4Fgu3VoJ4zuDv3v7uIV"
+          },
+          "href": "https://api.spotify.com/v1/albums/28z4Fgu3VoJ4zuDv3v7uIV",
+          "id": "28z4Fgu3VoJ4zuDv3v7uIV",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b27318c979381a3458fe1f9c75cc",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e0218c979381a3458fe1f9c75cc",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d0000485118c979381a3458fe1f9c75cc",
+              "width": 64
+            }
+          ],
+          "name": "Everything Matters But No One Is Listening (Quiet Slang)",
+          "release_date": "2018-05-18",
+          "release_date_precision": "day",
+          "total_tracks": 10,
+          "type": "album",
+          "uri": "spotify:album:28z4Fgu3VoJ4zuDv3v7uIV"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3d5usliWmjkMKGsv2X341Q"
+            },
+            "href": "https://api.spotify.com/v1/artists/3d5usliWmjkMKGsv2X341Q",
+            "id": "3d5usliWmjkMKGsv2X341Q",
+            "name": "Beach Slang",
+            "type": "artist",
+            "uri": "spotify:artist:3d5usliWmjkMKGsv2X341Q"
+          }
+        ],
+        "available_markets": [
+          "AE",
+          "AR",
+          "AU",
+          "BH",
+          "BO",
+          "BR",
+          "CA",
+          "CL",
+          "CO",
+          "CR",
+          "DO",
+          "DZ",
+          "EC",
+          "EG",
+          "GT",
+          "HK",
+          "HN",
+          "ID",
+          "IL",
+          "JO",
+          "KW",
+          "LB",
+          "MA",
+          "MX",
+          "MY",
+          "NI",
+          "NZ",
+          "OM",
+          "PA",
+          "PE",
+          "PH",
+          "PS",
+          "PY",
+          "QA",
+          "SA",
+          "SG",
+          "SV",
+          "TH",
+          "TN",
+          "TW",
+          "US",
+          "UY",
+          "VN",
+          "ZA"
+        ],
+        "disc_number": 1,
+        "duration_ms": 181763,
+        "explicit": true,
+        "external_ids": {
+          "isrc": "US3R41734101"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/0QJfCzwZVvXFoKiqa0jqGN"
+        },
+        "href": "https://api.spotify.com/v1/tracks/0QJfCzwZVvXFoKiqa0jqGN",
+        "id": "0QJfCzwZVvXFoKiqa0jqGN",
+        "is_local": false,
+        "name": "Future Mixtape For The Art Kids (Quiet Slang)",
+        "popularity": 14,
+        "preview_url": "https://p.scdn.co/mp3-preview/069dd68393e55c5d23cc5fcbc2809705c4ba65f8?cid=e57a713a18d4472d87247a6a97994337",
+        "track_number": 3,
+        "type": "track",
+        "uri": "spotify:track:0QJfCzwZVvXFoKiqa0jqGN"
+      },
+      {
+        "album": {
+          "album_type": "single",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/3d5usliWmjkMKGsv2X341Q"
+              },
+              "href": "https://api.spotify.com/v1/artists/3d5usliWmjkMKGsv2X341Q",
+              "id": "3d5usliWmjkMKGsv2X341Q",
+              "name": "Beach Slang",
+              "type": "artist",
+              "uri": "spotify:artist:3d5usliWmjkMKGsv2X341Q"
+            }
+          ],
+          "available_markets": [
+            "AE",
+            "AR",
+            "BH",
+            "BO",
+            "BR",
+            "CA",
+            "CL",
+            "CO",
+            "CR",
+            "DO",
+            "DZ",
+            "EC",
+            "EG",
+            "GT",
+            "HK",
+            "HN",
+            "ID",
+            "IL",
+            "JO",
+            "KW",
+            "LB",
+            "MA",
+            "MX",
+            "MY",
+            "NI",
+            "OM",
+            "PA",
+            "PE",
+            "PH",
+            "PS",
+            "PY",
+            "QA",
+            "SA",
+            "SG",
+            "SV",
+            "TH",
+            "TN",
+            "TW",
+            "US",
+            "UY",
+            "VN",
+            "ZA"
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/6NSunWXviDnDATqLvfVyof"
+          },
+          "href": "https://api.spotify.com/v1/albums/6NSunWXviDnDATqLvfVyof",
+          "id": "6NSunWXviDnDATqLvfVyof",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b27369f6f4f9efe1067d8fa9dca9",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e0269f6f4f9efe1067d8fa9dca9",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d0000485169f6f4f9efe1067d8fa9dca9",
+              "width": 64
+            }
+          ],
+          "name": "We Were Babies & We Were Dirtbags (Quiet Slang)",
+          "release_date": "2017-10-14",
+          "release_date_precision": "day",
+          "total_tracks": 4,
+          "type": "album",
+          "uri": "spotify:album:6NSunWXviDnDATqLvfVyof"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3d5usliWmjkMKGsv2X341Q"
+            },
+            "href": "https://api.spotify.com/v1/artists/3d5usliWmjkMKGsv2X341Q",
+            "id": "3d5usliWmjkMKGsv2X341Q",
+            "name": "Beach Slang",
+            "type": "artist",
+            "uri": "spotify:artist:3d5usliWmjkMKGsv2X341Q"
+          }
+        ],
+        "available_markets": [
+          "AE",
+          "AR",
+          "BH",
+          "BO",
+          "BR",
+          "CA",
+          "CL",
+          "CO",
+          "CR",
+          "DO",
+          "DZ",
+          "EC",
+          "EG",
+          "GT",
+          "HK",
+          "HN",
+          "ID",
+          "IL",
+          "JO",
+          "KW",
+          "LB",
+          "MA",
+          "MX",
+          "MY",
+          "NI",
+          "OM",
+          "PA",
+          "PE",
+          "PH",
+          "PS",
+          "PY",
+          "QA",
+          "SA",
+          "SG",
+          "SV",
+          "TH",
+          "TN",
+          "TW",
+          "US",
+          "UY",
+          "VN",
+          "ZA"
+        ],
+        "disc_number": 1,
+        "duration_ms": 181763,
+        "explicit": true,
+        "external_ids": {
+          "isrc": "US3R41734101"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/1uSWvOGmSSvmMaKCIQmEMt"
+        },
+        "href": "https://api.spotify.com/v1/tracks/1uSWvOGmSSvmMaKCIQmEMt",
+        "id": "1uSWvOGmSSvmMaKCIQmEMt",
+        "is_local": false,
+        "name": "Future Mixtape For The Art Kids (Quiet Slang)",
+        "popularity": 7,
+        "preview_url": "https://p.scdn.co/mp3-preview/069dd68393e55c5d23cc5fcbc2809705c4ba65f8?cid=e57a713a18d4472d87247a6a97994337",
+        "track_number": 1,
+        "type": "track",
+        "uri": "spotify:track:1uSWvOGmSSvmMaKCIQmEMt"
+      },
+      {
+        "album": {
+          "album_type": "compilation",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/0LyfQWJT6nXafLPZqxe9Of"
+              },
+              "href": "https://api.spotify.com/v1/artists/0LyfQWJT6nXafLPZqxe9Of",
+              "id": "0LyfQWJT6nXafLPZqxe9Of",
+              "name": "Various Artists",
+              "type": "artist",
+              "uri": "spotify:artist:0LyfQWJT6nXafLPZqxe9Of"
+            }
+          ],
+          "available_markets": [
+            "US"
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/34nmIm98fvFzjqQQ4tDCdh"
+          },
+          "href": "https://api.spotify.com/v1/albums/34nmIm98fvFzjqQQ4tDCdh",
+          "id": "34nmIm98fvFzjqQQ4tDCdh",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b273331e235015a6cc2e92d80c26",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e02331e235015a6cc2e92d80c26",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d00004851331e235015a6cc2e92d80c26",
+              "width": 64
+            }
+          ],
+          "name": "Good Music For All You Good People",
+          "release_date": "2018-02-23",
+          "release_date_precision": "day",
+          "total_tracks": 15,
+          "type": "album",
+          "uri": "spotify:album:34nmIm98fvFzjqQQ4tDCdh"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3d5usliWmjkMKGsv2X341Q"
+            },
+            "href": "https://api.spotify.com/v1/artists/3d5usliWmjkMKGsv2X341Q",
+            "id": "3d5usliWmjkMKGsv2X341Q",
+            "name": "Beach Slang",
+            "type": "artist",
+            "uri": "spotify:artist:3d5usliWmjkMKGsv2X341Q"
+          }
+        ],
+        "available_markets": [
+          "US"
+        ],
+        "disc_number": 1,
+        "duration_ms": 181763,
+        "explicit": true,
+        "external_ids": {
+          "isrc": "US3R41734101"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/37UO2XXJ8wsPAJw1wgQnlM"
+        },
+        "href": "https://api.spotify.com/v1/tracks/37UO2XXJ8wsPAJw1wgQnlM",
+        "id": "37UO2XXJ8wsPAJw1wgQnlM",
+        "is_local": false,
+        "name": "Future Mixtape For The Art Kids (Quiet Slang)",
+        "popularity": 5,
+        "preview_url": "https://p.scdn.co/mp3-preview/069dd68393e55c5d23cc5fcbc2809705c4ba65f8?cid=e57a713a18d4472d87247a6a97994337",
+        "track_number": 7,
+        "type": "track",
+        "uri": "spotify:track:37UO2XXJ8wsPAJw1wgQnlM"
+      },
+      {
+        "album": {
+          "album_type": "single",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/3d5usliWmjkMKGsv2X341Q"
+              },
+              "href": "https://api.spotify.com/v1/artists/3d5usliWmjkMKGsv2X341Q",
+              "id": "3d5usliWmjkMKGsv2X341Q",
+              "name": "Beach Slang",
+              "type": "artist",
+              "uri": "spotify:artist:3d5usliWmjkMKGsv2X341Q"
+            }
+          ],
+          "available_markets": [
+            "AE",
+            "AR",
+            "BH",
+            "BO",
+            "BR",
+            "CA",
+            "CL",
+            "CO",
+            "CR",
+            "DO",
+            "DZ",
+            "EC",
+            "EG",
+            "GT",
+            "HK",
+            "HN",
+            "ID",
+            "IL",
+            "JO",
+            "KW",
+            "LB",
+            "MA",
+            "MX",
+            "MY",
+            "NI",
+            "OM",
+            "PA",
+            "PE",
+            "PH",
+            "PS",
+            "PY",
+            "QA",
+            "SA",
+            "SG",
+            "SV",
+            "TH",
+            "TN",
+            "TW",
+            "US",
+            "UY",
+            "VN",
+            "ZA"
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/5T2PbI75E1zbtwdv21fQNs"
+          },
+          "href": "https://api.spotify.com/v1/albums/5T2PbI75E1zbtwdv21fQNs",
+          "id": "5T2PbI75E1zbtwdv21fQNs",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b27306a1c6514a45e4d5f9e446bb",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e0206a1c6514a45e4d5f9e446bb",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d0000485106a1c6514a45e4d5f9e446bb",
+              "width": 64
+            }
+          ],
+          "name": "Future Mixtape For The Art Kids (Quiet Slang)",
+          "release_date": "2018-03-07",
+          "release_date_precision": "day",
+          "total_tracks": 1,
+          "type": "album",
+          "uri": "spotify:album:5T2PbI75E1zbtwdv21fQNs"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3d5usliWmjkMKGsv2X341Q"
+            },
+            "href": "https://api.spotify.com/v1/artists/3d5usliWmjkMKGsv2X341Q",
+            "id": "3d5usliWmjkMKGsv2X341Q",
+            "name": "Beach Slang",
+            "type": "artist",
+            "uri": "spotify:artist:3d5usliWmjkMKGsv2X341Q"
+          }
+        ],
+        "available_markets": [
+          "AE",
+          "AR",
+          "BH",
+          "BO",
+          "BR",
+          "CA",
+          "CL",
+          "CO",
+          "CR",
+          "DO",
+          "DZ",
+          "EC",
+          "EG",
+          "GT",
+          "HK",
+          "HN",
+          "ID",
+          "IL",
+          "JO",
+          "KW",
+          "LB",
+          "MA",
+          "MX",
+          "MY",
+          "NI",
+          "OM",
+          "PA",
+          "PE",
+          "PH",
+          "PS",
+          "PY",
+          "QA",
+          "SA",
+          "SG",
+          "SV",
+          "TH",
+          "TN",
+          "TW",
+          "US",
+          "UY",
+          "VN",
+          "ZA"
+        ],
+        "disc_number": 1,
+        "duration_ms": 181763,
+        "explicit": true,
+        "external_ids": {
+          "isrc": "US3R41734101"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/5R3Mc8MGOcKXeVjxuPMny1"
+        },
+        "href": "https://api.spotify.com/v1/tracks/5R3Mc8MGOcKXeVjxuPMny1",
+        "id": "5R3Mc8MGOcKXeVjxuPMny1",
+        "is_local": false,
+        "name": "Future Mixtape For The Art Kids (Quiet Slang)",
+        "popularity": 5,
+        "preview_url": "https://p.scdn.co/mp3-preview/069dd68393e55c5d23cc5fcbc2809705c4ba65f8?cid=e57a713a18d4472d87247a6a97994337",
+        "track_number": 1,
+        "type": "track",
+        "uri": "spotify:track:5R3Mc8MGOcKXeVjxuPMny1"
+      }
+    ],
+    "limit": 10,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "total": 7
+  }
+}

@@ -77,6 +77,12 @@ class TestGetTrackID:
         assert spotify.get_track_id(mock_client, **track) == expected_id
         mock_client.search.assert_called_with(q=expected_query)
 
+    def test_prefers_exact_title_match(self, mock_client):
+        mock_client.search.return_value = fixtures.json('search_title.json')
+        track = {'artist': 'Beach Slang', 'title': 'Kids'}
+        expected = '68npV3EWVTeDjL2gEL2eq9'
+        assert spotify.get_track_id(mock_client, **track) == expected
+
     def test_returns_matching_album(self, track, mock_client):
         expected = '4IssUgVW7mVUedc4agB4iW'
         assert spotify.get_track_id(mock_client, **track) == expected

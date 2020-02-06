@@ -23,14 +23,6 @@ def build_client(username=None):
     return spotipy.Spotify(auth=auth)
 
 
-def albums_match(spotify_track, parsed_album):
-    """Returns True if the tracks' album titles match."""
-    if parsed_album is None:
-        return False
-    spotify_album = spotify_track['album']['name']
-    return spotify_album.lower() == parsed_album.lower()
-
-
 def _format_query(string):
     """Format the query string."""
     return string.replace("'", "")
@@ -51,6 +43,16 @@ def _get_track_search_results(client, artist, title, album=None):
     return results['tracks']['items']
 
 
+def _result_sort_key(track, title, album):
+    """Provides a sort key for the returned Spotify tracks.
+
+    Orders by exact title match, then album matching."""
+    title_match = track['name'] == title
+    album = album if album is not None else ''
+    album_match = track['album']['name'].lower() == album.lower()
+    return (not title_match, not album_match)
+
+
 def get_track_id(client, artist, title, album=None, cover_of=None):
     """Returns the Spotify track ID for the given track."""
     results = _get_track_search_results(client, artist, title)
@@ -58,10 +60,11 @@ def get_track_id(client, artist, title, album=None, cover_of=None):
         results = _get_track_search_results(client, cover_of, title)
     if not results:
         return None
-    return next(
-        (result['id'] for result in results if albums_match(result, album)),
-        results[0]['id'],
+    results = sorted(
+        results,
+        key=lambda track: _result_sort_key(track, title, album),
         )
+    return results[0]['id']
 
 
 def create_playlist_from_parser(client, parser, public=False):
