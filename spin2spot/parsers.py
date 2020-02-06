@@ -96,9 +96,12 @@ class SetlistFMParser(BaseParser):
 
     def _parse_tracks(self, soup):
         tracks = soup.findAll('li', class_='song')
-        return [self._parse_track(track) for track in tracks]
+        tracks = [self._parse_track(track) for track in tracks]
+        return [track for track in tracks if track is not None]
 
     def _parse_track(self, track):
+        if track.find('span', class_='unknownSong'):
+            return None
         artist = self.title
         title = track.find('a').text
         payload = {'artist': artist, 'title': title}
