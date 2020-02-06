@@ -101,7 +101,13 @@ class SetlistFMParser(BaseParser):
     def _parse_track(self, track):
         artist = self.title
         title = track.find('a').text
-        return {'artist': artist, 'title': title}
+        payload = {'artist': artist, 'title': title}
+        links = track.findAll('a')
+        if len(links) < 3:
+            return payload
+        cover_of = links[1].text
+        payload['cover_of'] = cover_of
+        return payload
 
     @property
     def description(self):

@@ -66,6 +66,14 @@ class TestSetlistFMParser:
     def test_parses_track_attributes(self, parser, key, value):
         assert parser.tracks[1][key] == value
 
+    @pytest.mark.parametrize('key, value', [
+        ('artist', 'The Lemonheads'),
+        ('title', 'The Outdoor Type'),
+        ('cover_of', 'Smudge'),
+        ])
+    def test_parses_cover_track_attributes(self, parser, key, value):
+        assert parser.tracks[0][key] == value
+
     def test_builds_title_with_date(self, parser):
         assert parser.title_with_date == 'The Lemonheads: May 04, 2019'
 
