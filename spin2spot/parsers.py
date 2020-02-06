@@ -256,6 +256,7 @@ class SpinitronParser(BaseMultiparser):
 
 
 DOMAIN_TO_PARSER = {
+    'setlist.fm': SetlistFMParser,
     'spinitron.com': SpinitronParser,
     'wkdu.org': WKDUParser,
     'wprb.com': WPRBParser,
