@@ -63,6 +63,20 @@ class TestGetTrackID:
         mock_client.search.return_value = fixtures.json('search_empty.json')
         assert spotify.get_track_id(mock_client, **track) is None
 
+    def test_searches_covered_artist_if_necessary(self, mock_client):
+        first_search = fixtures.json('search_empty.json')
+        second_search = fixtures.json('search_track.json')
+        mock_client.search.side_effect = [first_search, second_search]
+        track = {
+            'artist': 'Runk',
+            'title': 'Lost Boys',
+            'cover_of': 'The Courtneys',
+            }
+        expected_id = '6Ck7eSqoon2ZHIQZuYAlLf'
+        expected_query = 'artist:"The Courtneys" track:"Lost Boys"'
+        assert spotify.get_track_id(mock_client, **track) == expected_id
+        mock_client.search.assert_called_with(q=expected_query)
+
     def test_returns_matching_album(self, track, mock_client):
         expected = '4IssUgVW7mVUedc4agB4iW'
         assert spotify.get_track_id(mock_client, **track) == expected

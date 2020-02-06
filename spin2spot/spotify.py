@@ -25,6 +25,8 @@ def build_client(username=None):
 
 def albums_match(spotify_track, parsed_album):
     """Returns True if the tracks' album titles match."""
+    if parsed_album is None:
+        return False
     spotify_album = spotify_track['album']['name']
     return spotify_album.lower() == parsed_album.lower()
 
@@ -34,7 +36,7 @@ def _format_query(string):
     return string.replace("'", "")
 
 
-def get_track_id(client, artist, title, album=None):
+def _get_track_search_results(client, artist, title, album=None):
     """Returns the Spotify track ID for the given track."""
     artist = _format_query(artist)
     title = _format_query(title)
@@ -45,8 +47,17 @@ def get_track_id(client, artist, title, album=None):
         )
     results = client.search(q=query)
     if not results['tracks']['total']:
+        return []
+    return results['tracks']['items']
+
+
+def get_track_id(client, artist, title, album=None, cover_of=None):
+    """Returns the Spotify track ID for the given track."""
+    results = _get_track_search_results(client, artist, title)
+    if not results and cover_of is not None:
+        results = _get_track_search_results(client, cover_of, title)
+    if not results:
         return None
-    results = results['tracks']['items']
     return next(
         (result['id'] for result in results if albums_match(result, album)),
         results[0]['id'],
