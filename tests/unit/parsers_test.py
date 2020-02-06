@@ -51,6 +51,7 @@ class TestSetlistFMParser:
         ('station', ''),
         ('dj', ''),
         ('datetime', datetime.datetime(2019, 5, 4)),
+        ('venue', 'Brooklyn Bowl, Brooklyn, NY, USA'),
         ])
     def test_parses_flat_attributes(self, parser, attribute, value):
         assert getattr(parser, attribute) == value

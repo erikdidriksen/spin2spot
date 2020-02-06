@@ -75,11 +75,17 @@ class BaseParser(ABC):
 
 class SetlistFMParser(BaseParser):
     """Parses a Setlist.FM page."""
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.venue = self.station
+        self.station = ''
+
     def _parse_title(self, soup):
         return soup.find('h1').find('a').text.strip()
 
     def _parse_station(self, soup):
-        return ''
+        """Captures the venue name; later overriden in __init__."""
+        return soup.find('h1').findAll('a')[1].text.strip()
 
     def _parse_dj(self, soup):
         return ''
