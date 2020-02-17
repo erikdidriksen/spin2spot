@@ -58,7 +58,7 @@ def _result_sort_key(track, title, album):
     """Provides a sort key for the returned Spotify tracks.
 
     Orders by exact title match, then album matching."""
-    title_match = track['name'] == title
+    title_match = track['name'].lower().startswith(title.lower())
     album = album if album is not None else ''
     album_match = track['album']['name'].lower() == album.lower()
     return (not title_match, not album_match)
