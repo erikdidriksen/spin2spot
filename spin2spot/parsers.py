@@ -9,6 +9,7 @@ def ensure_is_soup(html):
 
 class BaseParser:
     """The base class for episode-page parsers."""
+
     def __init__(self, html):
         soup = ensure_is_soup(html)
         self.title = self._parse_title(soup).strip()
@@ -24,36 +25,42 @@ class BaseParser:
         return getattr(self, key)
 
 
-class SetlistFMParser(BaseParser):
+class SetlistFMParser:
     """Parse a Setlist.FM page."""
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.venue = self.station
-        self.station = ''
 
-    def _parse_title(self, soup):
+    def __new__(cls, html):
+        soup = ensure_is_soup(html)
+        artist = cls._parse_artist(soup)
+        return {
+            'title': artist,
+            'venue': cls._parse_venue(soup),
+            'datetime': cls._parse_datetime(soup),
+            'tracks': cls._parse_tracks(soup, artist),
+            }
+
+    @staticmethod
+    def _parse_artist(soup):
         return soup.find('h1').find('a').text.strip()
 
-    def _parse_station(self, soup):
-        """Capture the venue name; later overriden in __init__."""
+    @staticmethod
+    def _parse_venue(soup):
         return soup.find('h1').findAll('a')[1].text.strip()
 
-    def _parse_dj(self, soup):
-        return ''
-
-    def _parse_datetime(self, soup):
+    @staticmethod
+    def _parse_datetime(soup):
         date = soup.find('div', class_='dateBlock').text
         return dateutil.parser.parse(date)
 
-    def _parse_tracks(self, soup):
+    @classmethod
+    def _parse_tracks(cls, soup, artist):
         tracks = soup.findAll('li', class_='song')
-        tracks = [self._parse_track(track) for track in tracks]
+        tracks = [cls._parse_track(track, artist) for track in tracks]
         return [track for track in tracks if track is not None]
 
-    def _parse_track(self, track):
+    @staticmethod
+    def _parse_track(track, artist):
         if track.find('span', class_='unknownSong'):
             return None
-        artist = self.title
         title = track.find('a').text
         payload = {'artist': artist, 'title': title}
         links = track.findAll('a')

@@ -48,8 +48,6 @@ class TestSetlistFMParser:
 
     @pytest.mark.parametrize('attribute, value', [
         ('title', 'The Lemonheads'),
-        ('station', ''),
-        ('dj', ''),
         ('datetime', datetime.datetime(2019, 5, 4)),
         ('venue', 'Brooklyn Bowl, Brooklyn, NY, USA'),
         ])
