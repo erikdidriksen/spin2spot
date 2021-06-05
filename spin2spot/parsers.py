@@ -223,9 +223,7 @@ class BaseMultiparser:
             except Exception:
                 pass
         if '_parser' not in self.__dict__:
-            raise ValueError('Cannot parse non-{name} content.'.format(
-                name=self._NAME,
-                ))
+            raise ValueError(f'Cannot parse non-{self._NAME} content.')
 
     def __getitem__(self, key):
         return self._parser[key]
@@ -252,7 +250,5 @@ def parse_episode(domain, html):
     try:
         parser = DOMAIN_TO_PARSER[domain]
     except KeyError:
-        raise KeyError('Cannot parse content from {domain}.'.format(
-            domain=domain,
-            ))
+        raise KeyError('Cannot parse content from {domain}.')
     return parser(html)

@@ -45,10 +45,7 @@ def _get_track_search_results(client, artist, title, album=None):
     artist = _format_query(artist)
     title = _format_query(title)
     album = _format_query(album) if album is not None else ''
-    query = 'artist:"{artist}" track:"{track}"'.format(
-        artist=artist,
-        track=title,
-        )
+    query = f'artist:"{artist}" track:"{title}"'
     results = client.search(q=query)
     if not results['tracks']['total']:
         return []

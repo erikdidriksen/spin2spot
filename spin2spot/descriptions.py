@@ -4,26 +4,18 @@ import datetime
 def playlist_description(parser):
     """Return a brief description for the playlist."""
     if 'venue' in parser:
-        return 'At {venue}'.format(venue=parser['venue'])
+        return f'At {parser["venue"]}'
     day = parser['datetime'].strftime('%A')
     time = parser['datetime'].time()
     if not time == datetime.time(0, 0):
         time = parser['datetime'].strftime('%I:%M%p').lower()
         time = time[1:] if time.startswith('0') else time
-        time = ' at {time}'.format(time=time)
+        time = f' at {time}'
     else:
         time = ''
-    return '{day}{time} on {station} with {dj}'.format(
-        day=day,
-        time=time,
-        station=parser['station'],
-        dj=parser['dj'],
-        )
+    return f'{day}{time} on {parser["station"]} with {parser["dj"]}'
 
 
 def playlist_title(parser):
     """Return the title and date of the playlist."""
-    return '{title}: {date}'.format(
-        title=parser['title'],
-        date=parser['datetime'].strftime('%B %d, %Y'),
-        )
+    return f'{parser["title"]}: {parser["datetime"].strftime("%B %d, %Y")}'
