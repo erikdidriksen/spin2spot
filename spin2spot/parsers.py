@@ -1,5 +1,4 @@
 import dateutil.parser
-from abc import ABC, abstractmethod
 from bs4 import BeautifulSoup as Soup
 
 
@@ -8,7 +7,7 @@ def ensure_is_soup(html):
     return html if isinstance(html, Soup) else Soup(html, 'html.parser')
 
 
-class BaseParser(ABC):
+class BaseParser:
     """The base class for episode-page parsers."""
     def __init__(self, html):
         soup = ensure_is_soup(html)
@@ -17,31 +16,6 @@ class BaseParser(ABC):
         self.dj = self._parse_dj(soup).strip()
         self.datetime = self._parse_datetime(soup)
         self.tracks = self._parse_tracks(soup)
-
-    @abstractmethod
-    def _parse_title(self):
-        """Parse the show's title."""
-        raise NotImplementedError
-
-    @abstractmethod
-    def _parse_station(self):
-        """Parse the show's radio station."""
-        raise NotImplementedError
-
-    @abstractmethod
-    def _parse_dj(self):
-        """Parse the name of the  show's DJ."""
-        raise NotImplementedError
-
-    @abstractmethod
-    def _parse_datetime(self):
-        """Parse the show's air date and time."""
-        raise NotImplementedError
-
-    @abstractmethod
-    def _parse_tracks(self):
-        """Parse the show's tracks."""
-        raise NotImplementedError
 
 
 class SetlistFMParser(BaseParser):
@@ -201,7 +175,7 @@ class WPRBParser(BaseParser):
         return {'artist': artist, 'title': title, 'album': album}
 
 
-class BaseMultiparser(ABC):
+class BaseMultiparser:
     """The base class for a parser with subparsers."""
     def __init__(self, html):
         soup = ensure_is_soup(html)
