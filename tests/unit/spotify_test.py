@@ -134,9 +134,9 @@ class TestCreatePlaylistFromParser:
         spotify.create_playlist_from_parser(mock_client, parser)
         mock_client.user_playlist_create.assert_called_with(
             user='username',
-            name=parser.title_with_date,
+            name='Ruckus Radio: November 10, 2015',
             public=False,
-            description=parser.description,
+            description='Tuesday at 11:00am on KWVA with Ruckus the Red',
             )
 
     def test_adds_tracks_correctly(self, mock_client, parser, track_ids):

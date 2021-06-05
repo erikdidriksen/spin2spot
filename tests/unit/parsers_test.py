@@ -74,12 +74,6 @@ class TestSetlistFMParser:
     def test_parses_cover_track_attributes(self, parser, key, value):
         assert parser.tracks[0][key] == value
 
-    def test_builds_title_with_date(self, parser):
-        assert parser.title_with_date == 'The Lemonheads: May 04, 2019'
-
-    def test_builds_custom_description(self, parser):
-        assert parser.description == 'At Brooklyn Bowl, Brooklyn, NY, USA'
-
 
 class TestSpinitronV1Parser:
     @pytest.fixture(scope='class')
@@ -105,13 +99,6 @@ class TestSpinitronV1Parser:
         ])
     def test_parses_track_attributes(self, parser, key, value):
         assert parser.tracks[0][key] == value
-
-    def test_builds_description(self, parser):
-        description = 'Tuesday at 11:00am on KWVA with Ruckus the Red'
-        assert parser.description == description
-
-    def test_builds_title_with_date(self, parser):
-        assert parser.title_with_date == 'Ruckus Radio: November 10, 2015'
 
 
 class TestSpinitronV2Parser:
@@ -139,13 +126,6 @@ class TestSpinitronV2Parser:
     def test_parses_track_attributes(self, parser, key, value):
         assert parser.tracks[8][key] == value
 
-    def test_builds_description(self, parser):
-        description = 'Tuesday at 2:00pm on WZBC 90.3 FM Newton with Nick'
-        assert parser.description == description
-
-    def test_builds_title_with_date(self, parser):
-        assert parser.title_with_date == '7DayWknd: August 02, 2016'
-
 
 class TestWKDUParser:
     @pytest.fixture(scope='class')
@@ -171,13 +151,6 @@ class TestWKDUParser:
         ])
     def test_parses_track_attributes(self, parser, key, value):
         assert parser.tracks[0][key] == value
-
-    def test_builds_description(self, parser):
-        description = 'Tuesday on WKDU with Matt'
-        assert parser.description == description
-
-    def test_builds_title_with_date(self, parser):
-        assert parser.title_with_date == 'The New Matt Show: October 01, 2013'
 
 
 class TestWPRBParser:
@@ -205,20 +178,9 @@ class TestWPRBParser:
     def test_parses_track_attributes(self, parser, key, value):
         assert parser.tracks[0][key] == value
 
-    def test_builds_description(self, parser):
-        description = 'Tuesday at 2:00pm on WPRB with Bad Newz'
-        assert parser.description == description
-
-    def test_builds_title_with_date(self, parser):
-        title_with_date = 'Hometown Soundsystem: November 10, 2015'
-        assert parser.title_with_date == title_with_date
-
 
 class TestSpinitronParser:
-    ATTRIBUTES = [
-        'title', 'station', 'dj', 'datetime', 'tracks',
-        'description', 'title_with_date',
-        ]
+    ATTRIBUTES = ['title', 'station', 'dj', 'datetime', 'tracks']
 
     @pytest.mark.parametrize('attribute', ATTRIBUTES)
     def test_parses_v1_page(self, spinitron_v1, attribute):

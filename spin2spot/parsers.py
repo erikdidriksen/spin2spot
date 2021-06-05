@@ -1,4 +1,3 @@
-import datetime
 import dateutil.parser
 from abc import ABC, abstractmethod
 from bs4 import BeautifulSoup as Soup
@@ -44,32 +43,6 @@ class BaseParser(ABC):
         """Parse the show's tracks."""
         raise NotImplementedError
 
-    @property
-    def description(self):
-        """Return a brief description of the episode."""
-        day = self.datetime.strftime('%A')
-        time = self.datetime.time()
-        if not time == datetime.time(0, 0):
-            time = self.datetime.strftime('%I:%M%p').lower()
-            time = time[1:] if time.startswith('0') else time
-            time = ' at {time}'.format(time=time)
-        else:
-            time = ''
-        return '{day}{time} on {station} with {dj}'.format(
-            day=day,
-            time=time,
-            station=self.station,
-            dj=self.dj,
-            )
-
-    @property
-    def title_with_date(self):
-        """Return the title and date of the episode."""
-        return '{title}: {date}'.format(
-            title=self.title,
-            date=self.datetime.strftime('%B %d, %Y'),
-            )
-
 
 class SetlistFMParser(BaseParser):
     """Parse a Setlist.FM page."""
@@ -109,10 +82,6 @@ class SetlistFMParser(BaseParser):
         cover_of = links[1].text
         payload['cover_of'] = cover_of
         return payload
-
-    @property
-    def description(self):
-        return 'At {venue}'.format(venue=self.venue)
 
 
 class SpinitronV1Parser(BaseParser):
