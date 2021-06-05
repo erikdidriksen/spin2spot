@@ -2,6 +2,7 @@ import os
 import re
 import spotipy
 import spotipy.util as util
+from .descriptions import playlist_description, playlist_title
 from .parsers import parse_episode
 from .retrieval import retrieve_episode
 
@@ -85,9 +86,9 @@ def create_playlist_from_parser(client, parser, public=False):
     user = client.current_user()['id']
     playlist = client.user_playlist_create(
         user=user,
-        name=parser.title_with_date,
+        name=playlist_title(parser),
         public=public,
-        description=parser.description,
+        description=playlist_description(parser),
         )
     client.user_playlist_add_tracks(
         user=user,
