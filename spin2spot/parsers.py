@@ -1,14 +1,12 @@
 import datetime
 import dateutil.parser
 from abc import ABC, abstractmethod
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup as Soup
 
 
 def ensure_is_soup(html):
     """Ensures the incoming HTML is parsed as a BeautifulSoup object."""
-    if isinstance(html, BeautifulSoup):
-        return html
-    return BeautifulSoup(html, 'html.parser')
+    return html if isinstance(html, Soup) else Soup(html, 'html.parser')
 
 
 class BaseParser(ABC):
