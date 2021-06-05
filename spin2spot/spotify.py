@@ -81,7 +81,7 @@ def get_track_id(client, artist, title, album=None, cover_of=None):
 
 def create_playlist_from_parser(client, parser, public=False):
     """Create a Spotify playlist for the given parsed episode."""
-    tracks = [get_track_id(client, **track) for track in parser.tracks]
+    tracks = [get_track_id(client, **track) for track in parser['tracks']]
     tracks = [track for track in tracks if track]
     user = client.current_user()['id']
     playlist = client.user_playlist_create(

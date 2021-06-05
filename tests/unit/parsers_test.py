@@ -54,17 +54,17 @@ class TestSetlistFMParser:
         ('venue', 'Brooklyn Bowl, Brooklyn, NY, USA'),
         ])
     def test_parses_flat_attributes(self, parser, attribute, value):
-        assert getattr(parser, attribute) == value
+        assert parser[attribute] == value
 
     def test_parses_all_tracks(self, parser):
-        assert len(parser.tracks) == 23
+        assert len(parser['tracks']) == 23
 
     @pytest.mark.parametrize('key, value', [
         ('artist', 'The Lemonheads'),
         ('title', 'Being Around'),
         ])
     def test_parses_track_attributes(self, parser, key, value):
-        assert parser.tracks[1][key] == value
+        assert parser['tracks'][1][key] == value
 
     @pytest.mark.parametrize('key, value', [
         ('artist', 'The Lemonheads'),
@@ -72,7 +72,7 @@ class TestSetlistFMParser:
         ('cover_of', 'Smudge'),
         ])
     def test_parses_cover_track_attributes(self, parser, key, value):
-        assert parser.tracks[0][key] == value
+        assert parser['tracks'][0][key] == value
 
 
 class TestSpinitronV1Parser:
@@ -87,10 +87,10 @@ class TestSpinitronV1Parser:
         ('datetime', datetime.datetime(2015, 11, 10, 11, 00)),
         ])
     def test_parses_flat_attributes(self, parser, attribute, value):
-        assert getattr(parser, attribute) == value
+        assert parser[attribute] == value
 
     def test_parses_all_tracks(self, parser):
-        assert len(parser.tracks) == 18
+        assert len(parser['tracks']) == 18
 
     @pytest.mark.parametrize('key, value', [
         ('artist', 'Fuzz'),
@@ -98,7 +98,7 @@ class TestSpinitronV1Parser:
         ('album', 'ii'),
         ])
     def test_parses_track_attributes(self, parser, key, value):
-        assert parser.tracks[0][key] == value
+        assert parser['tracks'][0][key] == value
 
 
 class TestSpinitronV2Parser:
@@ -113,10 +113,10 @@ class TestSpinitronV2Parser:
         ('datetime', datetime.datetime(2016, 8, 2, 14, 00)),
         ])
     def test_parses_flat_attributes(self, parser, attribute, value):
-        assert getattr(parser, attribute) == value
+        assert parser[attribute] == value
 
     def test_parses_all_tracks(self, parser):
-        assert len(parser.tracks) == 16
+        assert len(parser['tracks']) == 16
 
     @pytest.mark.parametrize('key, value', [
         ('artist', 'Future Teens'),
@@ -124,7 +124,7 @@ class TestSpinitronV2Parser:
         ('album', 'Action Potential - Single'),
         ])
     def test_parses_track_attributes(self, parser, key, value):
-        assert parser.tracks[8][key] == value
+        assert parser['tracks'][8][key] == value
 
 
 class TestWKDUParser:
@@ -139,10 +139,10 @@ class TestWKDUParser:
         ('datetime', datetime.datetime(2013, 10, 1)),
         ])
     def test_parses_flat_attributes(self, parser, attribute, value):
-        assert getattr(parser, attribute) == value
+        assert parser[attribute] == value
 
     def test_parses_all_tracks(self, parser):
-        assert len(parser.tracks) == 26
+        assert len(parser['tracks']) == 26
 
     @pytest.mark.parametrize('key, value', [
         ('artist', 'Big Star'),
@@ -150,7 +150,7 @@ class TestWKDUParser:
         ('album', 'Radio City'),
         ])
     def test_parses_track_attributes(self, parser, key, value):
-        assert parser.tracks[0][key] == value
+        assert parser['tracks'][0][key] == value
 
 
 class TestWPRBParser:
@@ -165,10 +165,10 @@ class TestWPRBParser:
         ('datetime', datetime.datetime(2015, 11, 10, 14, 00)),
         ])
     def test_parses_flat_attributes(self, parser, attribute, value):
-        assert getattr(parser, attribute) == value
+        assert parser[attribute] == value
 
     def test_parses_all_tracks(self, parser):
-        assert len(parser.tracks) == 43
+        assert len(parser['tracks']) == 43
 
     @pytest.mark.parametrize('key, value', [
         ('artist', 'Built to Spill'),
@@ -176,7 +176,7 @@ class TestWPRBParser:
         ('album', 'Keep it Like A Secret'),
         ])
     def test_parses_track_attributes(self, parser, key, value):
-        assert parser.tracks[0][key] == value
+        assert parser['tracks'][0][key] == value
 
 
 class TestSpinitronParser:
@@ -186,13 +186,13 @@ class TestSpinitronParser:
     def test_parses_v1_page(self, spinitron_v1, attribute):
         parser = parsers.SpinitronParser(spinitron_v1)
         v1_parser = parsers.SpinitronV1Parser(spinitron_v1)
-        assert getattr(parser, attribute) == getattr(v1_parser, attribute)
+        assert parser[attribute] == getattr(v1_parser, attribute)
 
     @pytest.mark.parametrize('attribute', ATTRIBUTES)
     def test_parses_v2_page(self, spinitron_v2, attribute):
         parser = parsers.SpinitronParser(spinitron_v2)
         v2_parser = parsers.SpinitronV2Parser(spinitron_v2)
-        assert getattr(parser, attribute) == getattr(v2_parser, attribute)
+        assert parser[attribute] == getattr(v2_parser, attribute)
 
     def test_raises_error_for_non_spinitron_content(self, wkdu):
         with pytest.raises(ValueError):

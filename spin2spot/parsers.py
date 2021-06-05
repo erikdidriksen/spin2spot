@@ -17,6 +17,12 @@ class BaseParser:
         self.datetime = self._parse_datetime(soup)
         self.tracks = self._parse_tracks(soup)
 
+    def __contains__(self, key):
+        return hasattr(self, key)
+
+    def __getitem__(self, key):
+        return getattr(self, key)
+
 
 class SetlistFMParser(BaseParser):
     """Parse a Setlist.FM page."""
@@ -192,6 +198,12 @@ class BaseMultiparser:
 
     def __getattr__(self, attribute):
         return getattr(self._parser, attribute)
+
+    def __getitem__(self, key):
+        return self._parser[key]
+
+    def __contains__(self, key):
+        return hasattr(self._parser, key)
 
 
 class SpinitronParser(BaseMultiparser):
