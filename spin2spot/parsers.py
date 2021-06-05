@@ -7,22 +7,18 @@ def ensure_is_soup(html):
     return html if isinstance(html, Soup) else Soup(html, 'html.parser')
 
 
-class BaseParser:
+class RadioParser:
     """The base class for episode-page parsers."""
 
-    def __init__(self, html):
+    def __new__(cls, html):
         soup = ensure_is_soup(html)
-        self.title = self._parse_title(soup).strip()
-        self.station = self._parse_station(soup).strip()
-        self.dj = self._parse_dj(soup).strip()
-        self.datetime = self._parse_datetime(soup)
-        self.tracks = self._parse_tracks(soup)
-
-    def __contains__(self, key):
-        return hasattr(self, key)
-
-    def __getitem__(self, key):
-        return getattr(self, key)
+        return {
+            'title': cls._parse_title(soup).strip(),
+            'station': cls._parse_station(soup).strip(),
+            'dj': cls._parse_dj(soup).strip(),
+            'datetime': cls._parse_datetime(soup),
+            'tracks': cls._parse_tracks(soup),
+            }
 
 
 class SetlistFMParser:
@@ -71,28 +67,35 @@ class SetlistFMParser:
         return payload
 
 
-class SpinitronV1Parser(BaseParser):
+class SpinitronV1Parser(RadioParser):
     """Parse an old-style Spinitron episode page."""
-    def _parse_title(self, soup):
+
+    @staticmethod
+    def _parse_title(soup):
         return soup.find('p', class_='plhead').find('a').text
 
-    def _parse_station(self, soup):
+    @staticmethod
+    def _parse_station(soup):
         return soup.find('p', id='feeds').find('a').text
 
-    def _parse_dj(self, soup):
+    @staticmethod
+    def _parse_dj(soup):
         return soup.find('div', class_='infoblock').find('a').text
 
-    def _parse_datetime(self, soup):
+    @staticmethod
+    def _parse_datetime(soup):
         date = soup.find('p', class_='plheadsub').text
         date = date[:date.find('–')]  # remove ending time
         date = date.replace('.', ':')
         return dateutil.parser.parse(date)
 
-    def _parse_tracks(self, soup):
+    @classmethod
+    def _parse_tracks(cls, soup):
         tracks = soup.findAll('div', class_='f2row')
-        return [self._parse_track(track) for track in tracks]
+        return [cls._parse_track(track) for track in tracks]
 
-    def _parse_track(self, track):
+    @staticmethod
+    def _parse_track(track):
         artist = track.find('span', class_='aw').text
         title = track.find('span', class_='sn').text[1:-1]  # quotes
         album = track.find('span', class_='dn')
@@ -100,27 +103,34 @@ class SpinitronV1Parser(BaseParser):
         return {'artist': artist, 'title': title, 'album': album}
 
 
-class SpinitronV2Parser(BaseParser):
+class SpinitronV2Parser(RadioParser):
     """Parse a new-style Spinitron episode page."""
-    def _parse_title(self, soup):
+
+    @staticmethod
+    def _parse_title(soup):
         return soup.find('h3', class_='show-title').text
 
-    def _parse_station(self, soup):
+    @staticmethod
+    def _parse_station(soup):
         return soup.find('h1').text
 
-    def _parse_dj(self, soup):
+    @staticmethod
+    def _parse_dj(soup):
         return soup.find('p', class_='dj-name').find('a').text
 
-    def _parse_datetime(self, soup):
+    @staticmethod
+    def _parse_datetime(soup):
         date = soup.find('p', class_='timeslot').text
         date = date[:date.find('–')]  # remove ending time
         return dateutil.parser.parse(date)
 
-    def _parse_tracks(self, soup):
+    @classmethod
+    def _parse_tracks(cls, soup):
         tracks = soup.findAll('tr', class_='spin-item')
-        return [self._parse_track(track) for track in tracks]
+        return [cls._parse_track(track) for track in tracks]
 
-    def _parse_track(self, track):
+    @staticmethod
+    def _parse_track(track):
         artist = track.find('span', class_='artist').text
         title = track.find('span', class_='song').text
         album = track.find('span', class_='release')
@@ -128,60 +138,74 @@ class SpinitronV2Parser(BaseParser):
         return {'artist': artist, 'title': title, 'album': album}
 
 
-class WKDUParser(BaseParser):
+class WKDUParser(RadioParser):
     """Parse a WKDU episode page."""
-    def _parse_title(self, soup):
+
+    @staticmethod
+    def _parse_title(soup):
         sidebar = soup.find('div', class_='panel-col-last')
         return sidebar.find('h2', class_='pane-title').text
 
-    def _parse_station(self, soup):
+    @staticmethod
+    def _parse_station(soup):
         return 'WKDU'
 
-    def _parse_dj(self, soup):
+    @staticmethod
+    def _parse_dj(soup):
         div = soup.find('div', class_='field-field-station-program-dj')
         return div.find('a').text
 
-    def _parse_datetime(self, soup):
+    @staticmethod
+    def _parse_datetime(soup):
         panel = soup.find('div', class_='pane-node-content')
         title = panel.find('h2').text
         date = title.split(' ')[-1]
         return dateutil.parser.parse(date)
 
-    def _parse_tracks(self, soup):
+    @classmethod
+    def _parse_tracks(cls, soup):
         table = soup.find('table', class_='views-table').find('tbody')
         tracks = table.findAll('tr')
-        return [self._parse_track(track) for track in tracks]
+        return [cls._parse_track(track) for track in tracks]
 
-    def _parse_track(self, track):
+    @staticmethod
+    def _parse_track(track):
         artist = track.find('td', class_='views-field-artist').text.strip()
         title = track.find('td', class_='views-field-title').text.strip()
         album = track.find('td', class_='views-field-album').text.strip()
         return {'artist': artist, 'title': title, 'album': album}
 
 
-class WPRBParser(BaseParser):
+class WPRBParser(RadioParser):
     """Parse a WPRB episode page."""
-    def _parse_title(self, soup):
+
+    @staticmethod
+    def _parse_title(soup):
         return soup.find('h2', class_='playlist-title-text').text
 
-    def _parse_station(self, soup):
+    @staticmethod
+    def _parse_station(soup):
         return 'WPRB'
 
-    def _parse_dj(self, soup):
+    @staticmethod
+    def _parse_dj(soup):
         dj = soup.find('h3', class_='dj-name').text.strip()
         return dj[5:]  # "with "
 
-    def _parse_datetime(self, soup):
+    @staticmethod
+    def _parse_datetime(soup):
         date = soup.find('span', class_='playlist-time').text
         date = ' '.join(date.split('\n')[:2])  # one line
         date = date.split(' to ')[0]  # remove ending time
         return dateutil.parser.parse(date)
 
-    def _parse_tracks(self, soup):
+    @classmethod
+    def _parse_tracks(cls, soup):
         tracks = soup.findAll('tr', class_='playlist-row')
-        return [self._parse_track(track) for track in tracks]
+        return [cls._parse_track(track) for track in tracks]
 
-    def _parse_track(self, track):
+    @staticmethod
+    def _parse_track(track):
         artist = track.find('td', class_='playlist-artist').text
         title = track.find('td', class_='playlist-song').text
         album = track.find('td', class_='playlist-album').text
@@ -203,14 +227,11 @@ class BaseMultiparser:
                 name=self._NAME,
                 ))
 
-    def __getattr__(self, attribute):
-        return getattr(self._parser, attribute)
-
     def __getitem__(self, key):
         return self._parser[key]
 
     def __contains__(self, key):
-        return hasattr(self._parser, key)
+        return key in self._parser
 
 
 class SpinitronParser(BaseMultiparser):
