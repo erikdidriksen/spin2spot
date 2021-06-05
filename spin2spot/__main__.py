@@ -4,7 +4,7 @@ from .spotify import build_client, create_playlist
 
 
 def run_module(urls, username=None, public=False):
-    """Creates Spotify playlists from the given URLs."""
+    """Create Spotify playlists from the given URLs."""
     client = build_client(username)
     for url in urls:
         create_playlist(client, url, public=public)

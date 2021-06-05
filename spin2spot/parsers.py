@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup as Soup
 
 
 def ensure_is_soup(html):
-    """Ensures the incoming HTML is parsed as a BeautifulSoup object."""
+    """Ensure the incoming HTML is parsed as a BeautifulSoup object."""
     return html if isinstance(html, Soup) else Soup(html, 'html.parser')
 
 
@@ -46,7 +46,7 @@ class BaseParser(ABC):
 
     @property
     def description(self):
-        """Returns a brief description of the episode."""
+        """Return a brief description of the episode."""
         day = self.datetime.strftime('%A')
         time = self.datetime.time()
         if not time == datetime.time(0, 0):
@@ -64,7 +64,7 @@ class BaseParser(ABC):
 
     @property
     def title_with_date(self):
-        """Returns the title and date of the episode."""
+        """Return the title and date of the episode."""
         return '{title}: {date}'.format(
             title=self.title,
             date=self.datetime.strftime('%B %d, %Y'),
@@ -72,7 +72,7 @@ class BaseParser(ABC):
 
 
 class SetlistFMParser(BaseParser):
-    """Parses a Setlist.FM page."""
+    """Parse a Setlist.FM page."""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.venue = self.station
@@ -82,7 +82,7 @@ class SetlistFMParser(BaseParser):
         return soup.find('h1').find('a').text.strip()
 
     def _parse_station(self, soup):
-        """Captures the venue name; later overriden in __init__."""
+        """Capture the venue name; later overriden in __init__."""
         return soup.find('h1').findAll('a')[1].text.strip()
 
     def _parse_dj(self, soup):
@@ -116,7 +116,7 @@ class SetlistFMParser(BaseParser):
 
 
 class SpinitronV1Parser(BaseParser):
-    """Parses an old-style Spinitron episode page."""
+    """Parse an old-style Spinitron episode page."""
     def _parse_title(self, soup):
         return soup.find('p', class_='plhead').find('a').text
 
@@ -145,7 +145,7 @@ class SpinitronV1Parser(BaseParser):
 
 
 class SpinitronV2Parser(BaseParser):
-    """Parses a new-style Spinitron episode page."""
+    """Parse a new-style Spinitron episode page."""
     def _parse_title(self, soup):
         return soup.find('h3', class_='show-title').text
 
@@ -173,7 +173,7 @@ class SpinitronV2Parser(BaseParser):
 
 
 class WKDUParser(BaseParser):
-    """Parses a WKDU episode page."""
+    """Parse a WKDU episode page."""
     def _parse_title(self, soup):
         sidebar = soup.find('div', class_='panel-col-last')
         return sidebar.find('h2', class_='pane-title').text
@@ -204,7 +204,7 @@ class WKDUParser(BaseParser):
 
 
 class WPRBParser(BaseParser):
-    """Parses a WPRB episode page."""
+    """Parse a WPRB episode page."""
     def _parse_title(self, soup):
         return soup.find('h2', class_='playlist-title-text').text
 
@@ -265,7 +265,7 @@ DOMAIN_TO_PARSER = {
 
 
 def parse_episode(domain, html):
-    """Parses the given episode HTML."""
+    """Parse the given episode HTML."""
     try:
         parser = DOMAIN_TO_PARSER[domain]
     except KeyError:
