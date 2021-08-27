@@ -28,6 +28,9 @@ def test_builds_playlist_description_from_parser(parser, expected):
 
 @pytest.mark.parametrize('parser, expected', [
     ({'title': title, 'datetime': dt}, 'Spin Cycle: August 27, 2021'),
+    ({'title': title}, 'Spin Cycle'),
+    ({'datetime': dt}, 'August 27, 2021'),
+    ({}, ''),
     ])
 def test_builds_playlist_title_from_parser(parser, expected):
     assert descriptions.playlist_title(parser) == expected

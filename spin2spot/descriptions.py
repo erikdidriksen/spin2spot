@@ -1,6 +1,14 @@
 import datetime
 
 
+def format_date(dt):
+    """Format the datetime as a string."""
+    if not isinstance(dt, datetime.datetime):
+        return None
+    else:
+        return dt.strftime('%B %d, %Y')
+
+
 def format_day_of_week_and_time(dt):
     """Format the datetime as the day of the week & time."""
     if not isinstance(dt, datetime.datetime):
@@ -44,4 +52,8 @@ def playlist_description(parser):
 
 def playlist_title(parser):
     """Return the title and date of the playlist."""
-    return f'{parser["title"]}: {parser["datetime"].strftime("%B %d, %Y")}'
+    title = [
+        parser.get('title'),
+        format_date(parser.get('datetime')),
+        ]
+    return ': '.join(phrase for phrase in title if phrase)
