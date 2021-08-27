@@ -225,6 +225,9 @@ class BaseMultiparser:
         if '_parser' not in self.__dict__:
             raise ValueError(f'Cannot parse non-{self._NAME} content.')
 
+    def get(self, key, default=None):
+        return self._parser.get(key, default)
+
     def __getitem__(self, key):
         return self._parser[key]
 

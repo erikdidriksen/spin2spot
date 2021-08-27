@@ -15,6 +15,12 @@ venue = 'TV Eye'
     ({'venue': venue}, 'At TV Eye'),
     ({'datetime': dt, 'station': station, 'dj': dj}, 'Friday at 9:00am on WERA with Lauree'),
     ({'datetime': date, 'station': station, 'dj': dj}, 'Friday on WERA with Lauree'),
+    ({'datetime': dt, 'station': station}, 'Friday at 9:00am on WERA'),
+    ({'datetime': dt, 'dj': dj}, 'Friday at 9:00am with Lauree'),
+    ({'station': station, 'dj': dj}, 'On WERA with Lauree'),
+    ({'station': station}, 'On WERA'),
+    ({'dj': dj}, 'With Lauree'),
+    ({}, ''),
     ])
 def test_builds_playlist_description_from_parser(parser, expected):
     assert descriptions.playlist_description(parser) == expected
