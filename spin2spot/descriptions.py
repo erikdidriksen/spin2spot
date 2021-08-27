@@ -1,6 +1,11 @@
 import datetime
 
 
+def today():
+    """Return the current datetime."""
+    return datetime.datetime.now()  # pragma: no cover
+
+
 def format_date(dt):
     """Format the datetime as a string."""
     if not isinstance(dt, datetime.datetime):
@@ -50,10 +55,19 @@ def playlist_description(parser):
     return ' '.join(description)
 
 
-def playlist_title(parser):
-    """Return the title and date of the playlist."""
+def playlist_title_from_parser(parser):
+    """Return a formatted title for the playlist, based on the parser data."""
     title = [
         parser.get('title'),
         format_date(parser.get('datetime')),
         ]
     return ': '.join(phrase for phrase in title if phrase)
+
+
+def playlist_title(parser):
+    """Return a title for the playlist.
+
+    Spotify requires a title for new playlists, so if no title can be
+    generated, we'll default to today's date."""
+    title = playlist_title_from_parser(parser)
+    return title if title else format_date(today())
