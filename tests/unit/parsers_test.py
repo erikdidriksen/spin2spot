@@ -200,7 +200,7 @@ class TestSpinitronParser:
 class TestParseEpisode:
     def test_parses_content(self, spinitron_v1):
         result = parsers.parse_episode('spinitron.com', spinitron_v1)
-        assert isinstance(result, parsers.SpinitronParser)
+        assert result['title'] == 'Ruckus Radio'
 
     def test_refuses_unconfigured_domains(self):
         with pytest.raises(KeyError):

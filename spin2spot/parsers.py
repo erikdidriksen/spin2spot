@@ -214,25 +214,14 @@ class WPRBParser(RadioParser):
 
 class BaseMultiparser:
     """The base class for a parser with subparsers."""
-    def __init__(self, html):
+    def __new__(cls, html):
         soup = ensure_is_soup(html)
-        for subparser in self._SUBPARSERS:
+        for subparser in cls._SUBPARSERS:
             try:
-                self._parser = subparser(soup)
-                break
+                return subparser(soup)
             except Exception:
                 pass
-        if '_parser' not in self.__dict__:
-            raise ValueError(f'Cannot parse non-{self._NAME} content.')
-
-    def get(self, key, default=None):
-        return self._parser.get(key, default)
-
-    def __getitem__(self, key):
-        return self._parser[key]
-
-    def __contains__(self, key):
-        return key in self._parser
+        raise ValueError(f'Cannot parse non-{cls._NAME} content.')
 
 
 class SpinitronParser(BaseMultiparser):
